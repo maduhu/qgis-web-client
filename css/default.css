@@ -1,0 +1,4752 @@
+/* http://ut.no/style/moderation.css */
+.moderation .message.error {
+    color: #e22;
+}
+.moderation.report {
+    float: right;
+	/* display:none; deactivates moderation by hiding the links */
+}
+.moderation .link {
+    cursor: pointer;
+    height: 16px;
+}
+.moderation.report .element,
+.moderation.report .container {
+    display: none;
+}
+.moderation.profile-image {
+    margin-bottom: 2px;
+}
+.moderation.profile-image,
+.moderation.report .link {
+    background: url(http://fil.nrk.no/contentfile/web/icons/famfamfam/exclamation.png) left no-repeat;
+    padding-left: 18px;
+}
+.moderation form label {
+    display: block;
+}
+.moderation form .button-group {
+    height: 5ex;
+    margin-top: 0.5em;
+    position: relative;
+}
+.moderation form .button-group .button {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0.2em;
+    padding: 0.2em;
+}
+.moderation form .button-group .abort {
+    background: #d33;
+    color: white;
+    right: 1em;
+    position: absolute;
+}
+.moderation form .button-group input[type=submit] {
+    background: #eee;
+    left: 1em;
+    position: absolute;
+}
+.moderation form {
+    margin: 0.2em;
+}
+.moderation form input,
+.moderation form textarea {
+    font-size: 1em;
+}
+.moderation form textarea {
+    width: 100%;
+}
+.moderation.reported {
+    border: 1px solid red;
+}
+.moderation.thank-you {
+    font-size: x-small;
+    font-weight: bold;
+    margin: 0.2em;
+}
+.moderation .ugc_content {
+    margin: 1em;
+    padding: 1em;
+    font-style: italic;
+}
+.moderation .ugc_content * {
+    height: auto;
+}
+.moderation .ugc_content ul,
+.moderation .ugc_content ul ul {
+    list-style: none;
+}
+#moderation-report-overlay {
+    background: black;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+#moderation-report-container {
+    background: white;
+    border: 0.5em solid #999;
+    display: none;
+    margin: 2em 0 auto -250px;
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 500px;
+    z-index: 2000;
+}
+.moderation.moderated .content-owner {
+    background: url(http://fil.nrk.no/contentfile/web/icons/famfamfam/exclamation.png) left no-repeat #ddd;
+    border: 0.1em outset #ddd;
+    padding: 2px 2px 2px 20px;
+}
+.moderation .add-naughty-point {
+    background: #eee;
+    border: 0.1em outset #ddd;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    padding: 0.2em;
+}
+/*
+ * Moderation administration
+ */
+.administration.moderation p {
+    padding-bottom: 0.5em;
+}
+.administration.moderation .ban-reason {
+    padding: 1em;
+}
+.administration.moderation table td {
+    border: 1px outset #006699;
+}
+.administration.moderation .hidden {
+    display: none;
+}
+.administration.moderation .inline {
+    display: inline;
+}
+.administration.moderation div.link {
+    display: block;
+    position: relative;
+}
+.administration.moderation .banned {
+    color: #b22;
+}
+.administration.moderation tr td,
+.administration.moderation tr td * {
+    background: white;
+    color: black;
+}
+.administration.moderation tr.overlimit td,
+.administration.moderation tr.overlimit td * {
+    background: #b22;
+    color: white;
+}
+.administration.moderation tr.nearlimit td,
+.administration.moderation tr.nearlimit td * {
+    background: #dd2;
+}
+.administration.moderation tr.forgiven td,
+.administration.moderation tr.forgiven td * {
+    background: #2d2;
+}
+.administration.moderation tr.view-reports td,
+.administration.moderation tr.view-reports td *,
+.administration.moderation tr.view-content td,
+.administration.moderation tr.view-content td * {
+    background: #ddd;
+}
+.administration.moderation tr.updated td,
+.administration.moderation tr.updated td * {
+    background: #2d2;
+}
+.administration.moderation .active {
+    background: #2d2;
+}
+.administration.moderation .userinfo table td {
+    border: none;
+}
+.administration.moderation .element-reports table {
+    margin: 1px;
+    padding: 1em;
+    width: 100%;
+}
+/* http://ut.no/style/reset.css */
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+img {
+	vertical-align: top;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* form elements */
+form, input, select, textarea {
+	vertical-align: middle;
+	line-height: 1;
+	padding: 0;
+	margin: 0;
+}
+/* http://ut.no/style/default.css */
+body {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 80%;
+}
+hr {
+    border: 0 #ccc solid;
+    border-top-width: 1px;
+    clear: both;
+    height: 0;
+}
+h1 {
+    font-size: 25px;
+}
+h2 {
+    font-size: 23px;
+}
+h3 {
+    font-size: 21px;
+}
+h4 {
+    font-size: 19px;
+}
+h5 {
+    font-size: 17px;
+}
+h6 {
+    font-size: 15px;
+}
+ol {
+    list-style: decimal;
+}
+ul {
+    list-style: disc;
+}
+li {
+    margin-left: 30px;
+}
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset {
+    margin-bottom: 10px;
+}
+.italic {
+    font-style: italic;
+}
+/* http://ut.no/style/nrkgrid.css */
+.wrapper {
+	margin: 0 auto;
+	display: inline /* FOR IE 6: DONT REMOVE SEMICOLON */
+	padding: 0 10px;
+	/*width: 1170px;*/
+	width: 990px;
+}
+.col1, .col2, .col3,
+.col4, .col5, .col6,
+.col7, .col8, .col9,
+.col10, .col11, .col12,
+.col13, .col14, .col15,
+.col16, .col17, .col18 {
+	margin-right: 10px;
+	margin-left: 10px;
+	display: inline;
+	float: left;
+}
+.col1 { width: 35px; }
+.col2 { width: 90px; }
+.col3 { width: 145px; }
+.col4 { width: 200px; }
+.col5 { width: 255px; }
+.col6 { width: 310px; }
+.col7 { width: 365px; }
+.col8 { width: 420px; }
+.col9 { width: 475px; }
+.col10 { width: 530px; }
+.col11 { width: 585px; }
+.col12 { width: 640px; }
+.col13 { width: 695px; }
+.col14 { width: 750px; }
+.col15 { width: 805px; }
+.col16 { width: 860px; }
+.col17 { width: 915px; }
+.col18 { width: 970px; }
+
+.first { margin-left: 0; }
+.last { margin-right: 0; }
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+.clearfix:after {
+  height: 0;
+  clear: both !important;
+  content: '.';
+  display: block;
+  visibility: hidden;
+}
+.clearfix { display:inline-block ;}
+* html .clearfix { height:1%; }
+.clearfix { display:block; }
+/* http://ut.no/style/ut.css */
+@charset "UTF-8";
+/* Globalt utsende for UT.no*/
+/* Global design guidelines */
+/*****************************/
+* {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+/* prevent dotted border in Firefox */
+}
+body {
+	background: url(../gfx/bakgrunner/new_kart.png) 50% 0;
+	line-height: 1.4;
+	color: #000;
+	font-family: Tahoma, Sans-Serif;
+}
+h1,h2,h3,h4,h5 {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;	
+}
+h2 a {
+	text-decoration: none;
+}
+a {
+	text-decoration: none;
+	color: #d72920;
+}
+a:hover {
+	text-decoration: underline;
+}
+a img {
+	border: 0;
+}
+ul {
+    list-style-type: none;
+}
+li {
+	margin-left: 30px;
+}
+/* Header */
+/*****************************/
+.logo {
+    top: 15px;
+    position: absolute;
+}
+.logos .logo {
+    padding-right: 100px;
+    margin: 15px 0 0 0;
+}
+.slogan {
+    position: relative;
+    top: 35px;
+    left: 180px;
+    width: 250px;
+}
+.slogan .main-slogan {
+    font-size: 20px;
+}
+.slogan p {
+    margin: 0;
+}
+.logo.dnt {
+    right: 0;
+}
+.logo.nrk {
+    right: 60px;
+    top: 30px;
+}
+.logo.ut {
+    margin: 20px 0 0 6px;
+}
+/* "external link" */
+.external_link {
+	background: transparent url(../gfx/ikoner/external_link.png) no-repeat scroll right center;
+	display: inline-block;
+	padding-right: 13px;
+}
+/* Selve siden */
+.wrapper {
+	position: relative;
+	/*left: 12px;*/
+}
+#middle, #bottom, #top .page_edge_top {
+	width: 990px;
+	float: left;
+	display: block;
+	position: relative;
+	padding-left: 20px;
+	margin-left: -20px;
+}
+#top {
+	background: url(../gfx/bakgrunner/frontpage_middle.png) 50% 0 repeat-y;
+	top: 0;
+		width: 990px;
+	float: left;
+	display: block;
+	position: relative;
+	padding-left: 20px;
+	margin-left: -20px;
+}
+#top .page_edge_top {
+	background: url(../gfx/bakgrunner/frontpage_top.png) no-repeat top center;
+	top: -15px;
+}
+#middle {
+	background: url(../gfx/bakgrunner/frontpage_middle.png) 50% 0 repeat-y;
+	padding-bottom: 5px;
+}
+#bottom {
+    bottom: -23px;
+}
+.bottom {
+    width: 970px;
+}
+h1,h2,h3,h4 {
+	font-weight: normal;
+	width: auto;
+}
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 20px;
+}
+h3 {
+	font-size: 16px;
+}
+h4 {
+	font-size: 14px;
+}
+
+/* fix for turistforeningen h4 -> h2 stil */
+.trip .col8 h4,
+.cottage .col8 h4,
+.trail .col8 h4,
+.location-page .location-desc h4 {
+	font-size: 20px;
+	margin: 14px 0 2px;
+	padding: 0;
+}
+
+
+a.all-trips {
+	position: relative;
+	bottom: 275px;
+	left: 176px;
+}
+/*Listesider, treffsider
+*/
+.all_hits h2 {
+	border: 0;
+	text-transform: none;
+}
+/*.cottage_all .show_all p {
+	width: 650px;
+}*/
+.cottage_all .pagination {
+	margin: 10px 0;
+}
+/* SEARCH STUFF MOVED TO SEPARATE CSS FILE*/
+/*Paginering*/
+.pagination .selected a {
+	background: transparent url(../gfx/bakgrunner/page.png) no-repeat center;
+	padding: 8px;
+	color: #fff;
+}
+.pagination .disabled span {
+	color: #ccc;
+}
+.pagination a,
+.pagination span {
+	padding: 0 3px 0 0;
+	text-decoration: none;
+	color: #000;
+}
+ul.pagination li {
+	display: inline;
+	margin-left: 0;
+}
+.facet .pagination {
+	margin-top: 0;
+}
+.pagination a:hover {
+	color: #0094a6;
+	text-decoration: underline;
+}
+ul.facet {
+	list-style-type: disc !important;
+}
+/* NAVIGATION */
+/**************/
+.topmenu {
+    width: 420px;
+    height: 54px;
+    background: url(../gfx/bakgrunner/navigation-menu.png) no-repeat;
+    float: left;
+}
+/*.poi {
+    margin-top: 20px;
+}*/
+.logos {
+	/*height: 160px;*/
+	height: 120px;
+	display: block;
+	float: left;
+	position: relative;
+}
+.navigation {
+background:url("../gfx/bakgrunner/shadow_small.png") no-repeat scroll 967px 0 transparent;
+height:55px;
+padding-right:10px;
+/*det som er under her er teststyle*/
+/*position:absolute;
+top:110px;
+width:990px;
+z-index:9999;*/
+}
+.navigation form label {
+	font-weight: bold;
+}
+/*searchbox*/
+.search {	
+	float: left;
+	position: relative;
+	width: 255px;
+	height: 55px;
+	background:url("../gfx/bakgrunner/navigation-search.png") no-repeat;
+	margin-left: 20px;
+	width: 307px;
+	padding: 5px 0 0 5px;
+}
+.search .ut-search-form {
+    width: 210px;
+    float: left;
+    margin-top: -2px;
+}.ut-search-form label {
+    display: none;
+}
+.search .ut-search-form  p {
+    padding-top: 3px;
+}
+.search .ut-search-button {
+    background:url("../gfx/knapper/search_small.png") no-repeat;
+}
+.search_label {
+	position: absolute;
+	top: -20px;
+}
+.search input {
+	height: 30px;
+	padding: 0;
+}
+.search input.ut-search-text {
+	height: 32px;
+	width: 140px;
+	line-height: 2;
+	padding-left: 5px;
+}
+.search p .ut-search-text-label {
+    display: none;
+}
+.search p {
+	margin: 4px 0 0 5px;
+	padding: 0;
+	width: 90px;
+	display: inline;
+	float: left;
+	color: #fff;
+	font-size: 16px;
+	line-height: 1;
+}
+/* Søketreff kategorier */
+.search-results * ul.subjects ul li a span {
+	white-space: nowrap;
+}
+.search-results ul.subjects li a span em {
+	opacity: 0.5;
+	font-size: 12px;
+	margin-left: 3px;
+	color: #000;
+}
+.nav-results-bottom {
+	background: #fff;
+	height: 29px;
+}
+.nav-results-bottom.search {
+	background: url(../gfx/bakgrunner/gradient_bottom_search.png) no-repeat;
+	width: 970px;
+	display: none;
+}
+.nav-close-button {
+	cursor: pointer;
+	position: relative;
+	float: right;
+	padding: 5px;
+	background: url(../gfx/bakgrunner/menu_marker_up.png) no-repeat;
+	width: 16px;
+	height: 8px;
+	top: 8px;
+}
+.nav-close-button.search {
+	background: url(../gfx/bakgrunner/search_marker_up.png) no-repeat;
+	display: none;
+}
+.ut-search-text-label {
+	font-size: 10px;
+	padding: 0;
+	margin: 0;
+	color: #000;
+}
+.ut-search-form {
+	height: 34px;
+	padding: 0 0 0 2px;
+	width: 320px;
+}
+.ut-search-text {
+	font-size: 16px;
+	color: #999;
+	float: left;
+	width: 200px;
+	/*height: 35px;*/
+	padding: 8px 0;
+}
+/*search button*/
+.ut-search-button {
+	width: 53px;
+	height: 40px !important;
+	border: none;
+	cursor: pointer;
+	background: transparent url(../gfx/knapper/search.png) no-repeat;
+	margin-left: 5px;
+}
+span.editlink {
+	font-size: small;
+	font-weight: normal;
+	float: right;
+}
+/* kol_menu */
+.kol_menu {
+	position: relative;
+	border: none;
+	padding: 0;
+    float: left;
+}
+.kol_menu .kategori {
+	padding: 0 0 20px;
+	float: left;
+	border:1px solid #cfcfcf;
+	height: 190px;
+	margin-right: 11px;
+	padding: 5px 10px;
+}
+.kol_menu .kategori .sec-col {
+    float: right;
+    position: relative;
+}
+.kol_menu .kategori ul li{
+	background: url(../gfx/bakgrunner/arrow.png) no-repeat left center;
+	display: block;
+	padding: 2px;
+	overflow: hidden;
+	margin: 0;
+}
+.kol_menu .kategori ul li a, .menu-result-list li a{
+    margin-left: 8px;
+}
+.kategori li.bold a {
+    color: #d72920;
+}
+.kol_menu .kategori h2 {
+	font-size: 21px;
+	font-weight: bold;
+	color: #d72920;
+}
+/*.kol_menu .kategori ul {
+    list-style-type: none;
+}*/
+.kol_menu .kategori h2,
+.kol_menu .kategori ul {
+	margin-bottom: 0;
+	margin-left: 10px;
+}
+.kol_menu a {
+	text-decoration: none;
+	color: #000;
+}
+.kol_menu a:hover {
+	text-decoration: underline;
+}
+.kol1 {
+    width: 183px;
+}
+.kol2 {
+    width: 300px;
+}
+.kol2 div {
+    display: inline-block;
+    float: left;
+}
+.kol3 {
+    width: 183px;
+}
+.kol4 {
+    width: 183px;
+    margin-right: 0!important;
+}
+/**TOP MENY */
+.menulist {
+	list-style: none;
+	margin: 0;
+}
+.menulist li {
+    float:left;
+    height:55px;
+    margin: 0;
+}
+.menulist li.active {
+    background:url("../gfx/bakgrunner/active-arrow.png") no-repeat scroll center 52px transparent;
+    height:70px;
+    position:relative;
+    z-index:999;
+}
+.menulist li a {
+    color: #FFFFFF;
+    display: block;
+    font-family: Trebuchet MS, Sans-Serif;
+    font-size: 16px;
+    height: 1px;
+    line-height: 5px;
+    padding: 27px 0px;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+}
+.menulist li a:hover {
+    text-decoration: underline;
+}
+.menulist li ul li {
+	width: 420px;
+	height: 10px;
+}
+.menulist li#TIPS {
+    border-right: none;
+}
+
+.menulist .menu-trips {
+    width: 84px;
+}
+
+.menulist .menu-cottages {
+    width: 91px;
+}
+
+.menulist .menu-activities {
+    width: 120px;
+}
+
+.menulist .menu-hints-advices {
+    width: 121px;
+}
+
+.admin .menulist li {
+	background: transparent url(../gfx/knapper/admin.png) no-repeat top left;
+	width: 34px;
+	position: absolute;
+	/*left: -45px;*/
+	left: -24px;
+	padding-left: 0;
+	padding-right: 0;
+	border: 0;
+	z-index: 999;
+}
+.admin .menulist li a {
+	display: block;
+}
+.admin .menulist li.active {
+	top: auto;
+}
+.admin .menulist li span {
+	visibility: hidden;
+	overflow: hidden;
+}
+.collapsible_button {
+	margin: 0;
+	text-align: left;
+	display: block;
+	font-weight: bold;
+	padding: 0 0 0 20px;
+	background: url(../gfx/knapper/menyknapp.png) no-repeat top;
+	width: 148px;
+	height: 28px;
+	margin-top: -11px;
+	display: block;
+	font-size: 18px;
+}
+.collapsible_button.active {
+	background-position: bottom;
+}
+/*menu*/
+.menulist .last {	
+    /*-moz-border-radius-topright:3px;
+	-webkit-border-top-right-radius:3px;*/
+	border-right: 0;
+}
+/* meny resultat*/
+.nav-results {
+	background: #fff;
+	position: relative;
+	display: none;
+	border: 1px solid #c2c2c2;
+	margin: 8px 0 0 0;	
+}
+.nav-results.search {
+	background: url(../gfx/bakgrunner/gradient_top_search.png) no-repeat;
+	position: relative;
+	top: -27px;
+}
+.menu-result-list {
+	padding: 10px 0 0 10px;
+}
+/*.menu-result-list ul {
+	list-style-type: none;
+}*/
+.menu-result-list ul.menu-result-list {
+	margin-left: 6px;
+	padding: 0;
+	position: relative;
+	z-index: 999;
+}
+.menu-result-list ul.menu-result-list li {
+	margin-left: 0;
+}
+.menu-result-list li a {
+    font-size: 12px;
+    line-height: 2;
+}
+.menu-result-case {
+	height: 150px;
+	background-color: #fff;
+	border: 1px solid #d2d2d2;
+	margin: 10px 0 10px 15px;
+}
+.menu-result-case-text {
+	padding: 10px 20px;
+	float: left;
+}
+.menu-result-case-text h2 {
+	border: none;
+}
+.menu-result-case-img {
+	float: left;
+	margin-left: 65px;
+    /*background: url(../gfx/dummies/kommer135x150.png) no-repeat;*/
+}
+/* Doclets før de styles individuelt*/
+.doclet {
+	padding: 4px;
+	background: #7991ff;
+	border: 4px solid #84befe;
+}
+/*KARTKNAPP forside*/
+.menumap {
+    width: 198px;
+    float: left;
+    background: url(../gfx/knapper/mapbutton.png) no-repeat;
+    height: 55px;
+    margin-left: 20px;
+    padding: 15px 0 0;
+    line-height: 28px;
+}
+.menumap a {
+    color: #fff;
+    font-size: 16px;
+    padding: 20px 24px 16px 85px;
+}
+#KART a {
+    padding-right: 0px;
+}
+/* Kart knapp	 snarvei fra søkeboksen	 til kartverktøyet */
+.map-button {
+	float: right;
+	padding: 5px;
+	background: rgb(53,83,21);
+	width: 115px;
+	text-decoration: none;
+	color: #fff;
+	margin: 0 190px 0 0;
+	height: 140px;
+	position: relative;
+}
+.map-button span {
+	color: #fff;
+	float: none;
+	width: 90px;
+	display: block;
+	position: relative;
+}
+.map-button img {
+	background: #fff;
+	border: 1px solid rgb(192,228,172);
+	padding: 10px;
+}
+.map-button * {
+	clear: both;
+	float: right;
+	font-size: 11px;
+	text-align: center;
+	padding: 2px;
+}
+/**** Search box ****/
+.findInList {
+	margin-bottom: 5px;
+}
+.findInList input {
+	background-color: #ffffef;
+	border: solid 1px #eee;
+	color: black;
+	font-family: arial;
+	font-size: .8em;
+	padding: 2px;
+}
+.findInList input.blurred {
+	background-color: white;
+	color: gray;
+}
+.checklist li.optgroup {
+	font-size: 1.1em;
+	font-weight: bold;
+	font-style: italic;
+	background-color: #ccc;
+	border-top: 1px solid #777;
+	border-bottom: 1px solid #777;
+	padding-left: 7px;
+}
+.checklist li.optgroup:hover {
+	background-color: #ccc;
+}
+ul.debug-menu {
+	margin: 0;
+	padding: 0;
+}
+ul.debug-menu li {
+	list-style: none;
+	display: block;
+	float: left;
+	padding: 3px;
+	margin: 0;
+}
+#followme label {
+	float: left;
+	clear: both;
+	height: 17px;
+}
+/************ FALLBACK PAGES *************/
+.fallback ul {
+	/*list-style-type: none;*/
+	margin-left: 20px;
+}
+.fallback li {
+	display: inline;
+	margin: 0;
+}
+.fallback	 li h3 {
+	margin: 0;
+	padding: 0;
+	text-transform: none;
+	border: 0;
+	text-decoration: none;
+	font-weight: bold;
+}
+/************** DEBUG SECTION *********/
+#debug-section,#debug-section * {
+	color: #0f0;
+	background: transparent;
+	font-family: Courier New, monospace;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+#debug-section {
+	padding: 5px;
+	background: #000 url(../gfx/bakgrunner/debug.png) top center repeat-x;
+}
+#debug-section a {
+	text-decoration: underline;
+	color: #fff;
+}
+#debug-section h1,
+#debug-section h2,
+#debug-section h3,
+#debug-section h4 {
+	font-weight: bold;
+}
+.addthis_default_style .at300b,
+.addthis_default_style .at300m {
+	padding: 0 4px;
+}
+.addthis_separator {
+	border-left: 1px solid #333333;
+	width: 0px;
+}
+.admin .menulist li a {
+	display: block;
+}
+.admin .menulist li.active {
+	top: auto;
+}
+.videomap {
+	width: 300px;
+}
+.topic .article {
+	clear: both;
+}
+.topic .trip-list li h3 {
+    font-weight: bold;
+}
+ .trip-list li {
+	font-size: 12px;
+	margin-bottom: 12px;
+	margin-left: 0;
+	overflow: hidden;
+}
+.trip-list li h3 {
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+}
+.trail-list li {
+    margin-bottom: 0;
+    font-size: 12px;
+	margin-left: 0;
+	overflow: hidden;
+}
+.trail-list li h3 {
+    font-weight: normal;
+}
+.trail-list li img, .trip-list li img {
+	float: left;
+	margin: 0 6px 0 0;
+}
+.topic .article-list {
+    float: left;    
+}
+.article-list li {
+	font-size: 12px;
+	margin: 0 0 12px 0;	
+	min-height: 60px;
+}
+.article-list li img {
+	float: left;
+	margin: 0 6px 4px 0;
+}
+.article-list li h3 {
+	font-size: 14px;
+	margin: 0 !important;
+	line-height: 1;	
+}
+.topic .article-list li h3  {
+    font-weight: bold;
+}
+.cottage-list ul, .article-list ul {
+    padding-top: 10px;
+}
+.cottage-list ul li {
+    margin: 0 0 10px;
+    overflow: hidden;
+}
+.cottage-list li h3 {
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0 !important;
+	line-height: 1;
+}
+.cottage-list img {
+	float: left;
+	margin: 0 6px 0 0;
+}
+.news_front .header h2 {
+    text-transform: none;
+}
+.breadcrumbs, 
+.breadcrumbs * {
+	position: relative;
+	text-transform: none;
+	font-size: 14px;
+	margin: 5px 0 0;
+}
+.related-list li h3 {
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0 !important;
+	line-height: 1;
+}
+.searchbox {
+    background: url(../gfx/bakgrunner/searchbox.png) no-repeat top center;
+    padding: 15px 10px 10px;
+    height: 90px;
+    margin-bottom: -15px;
+}
+.searchbox > * {
+	color:white;
+}
+.searchbox > p {
+    clear:both;
+    display:inline;
+    float:left;
+    font-size:28px;
+    margin:0 0 0 25px;
+    padding:0;
+    width:240px;
+    font-family: Trebuchet MS, Sans-Serif;
+    font-size: 28px;
+}
+.searchbox > div {
+    float: left;
+    width: 350px;
+}
+.searchbox .ut-search-form {
+    padding-bottom: 8px;
+}
+.ut-search-form p {
+    width: 400px;
+}
+.searchbox .ut-search-text {
+	width: 275px;
+	padding-left: 5px;
+}
+.searchbox .ut-search-form * {
+	float: none;
+}
+.searchbox .ut-search-text-label {
+	position: relative;
+}
+.searchbox .ut-search-text-label, 
+.searchbox .ut-search-text-label * {
+    color: #000;
+    font-size: 11px;
+}
+.searchbox .ut-search-text-label a {
+	text-decoration: underline;
+	color: #fff;
+}
+.linkbox {
+    width: 204px;
+    height: 100px;
+    float: left;
+    display: block;
+    clear: none;
+    border: 1px solid #cfcfcf;
+    margin: 0 11px 10px 0;
+    padding: 10px 0 ;
+}
+.linkbox.last {
+    margin-right: 0;
+}
+.menubox {
+    float: left;
+    display: block;  
+    margin-bottom: 5px;    
+}
+.linkbox h2 {
+    font-weight: bold;
+}
+.linkbox li {
+    background: url(../gfx/bakgrunner/arrow.png) no-repeat left center;
+}
+.linkbox li a {
+    color: #434343;
+    font-size: 12px;
+    font-family: Tahoma, sans-serif;
+    margin-left: 8px;    
+}
+.linkbox li.bold, .kategori li.bold, .menu-result-list li.bold {
+    font-weight: bold;
+     background: url(../gfx/bakgrunner/doublearrow.png) no-repeat 0 55%;
+}
+.linkbox li.bold a {
+    margin-left:15px;
+}
+.linkbox h2, 
+.linkbox li {
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+.articlebox {
+    display: block;
+    float: left;
+}
+.debug {
+	outline: 2px dashed gray !important;
+}
+.vspace {
+	margin-bottom: 350px;
+}
+.search.error {
+	font-size: 20px;
+}
+/* Kolofon og annet i bunnen */
+/*****************************/
+.kolofon {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #272727;
+	float: left;
+	width: 100%;
+}
+.kolofon * {
+	padding: 0;
+}
+.kolofon h1 {
+	font-size: 1.0em !important;
+	font-weight: normal;
+	text-transform: none;
+	border: 0;
+	display: inline;
+}
+.kolofon .editor {
+	display: inline;
+}
+.kolofon .copyright {
+	font-size: 0.8em;
+}
+.kolofon ul {
+	margin: 0 0 0 300px;
+	padding: 0;
+}
+.kolofon ul li {
+	list-style: none;
+	display: block;
+	float: left;
+	padding: 0px 6px 0px 0px;
+	margin: 3px;
+	border-right: 1px solid #d72920;
+}
+.kolofon ul li.last {
+	border-right: 0 none;
+	padding-left: 3px;
+}
+.kolofon ul li a {
+	float: left;
+	text-decoration: none;
+	color: #d72920;
+}
+.kolofon ul li a:hover,
+.kolofon ul li .current {	
+	text-decoration: underline;
+}
+.login-loginbox {
+    margin-top: 4px;
+    position: absolute;
+    text-align: right;
+    width: 970px;
+    z-index: 100;
+}
+.map-tool .login-loginbox {
+    margin: 25px 0 0 350px !important;
+    text-align: left !important;   
+    }
+.ut-admin-login-toggle {
+  top: 350px;
+  position: relative;
+}
+.logon h2 {
+    border-bottom: none;
+}
+.logon p.login {
+    width: 250px;
+    background: none;    
+}
+.logon a.submit {
+    color: #d72920;
+    margin: 0;
+}
+.infobox {
+    margin: 0 0 10px 0;
+    border: 1px solid #c4c4c4;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    /*float: left;*/
+}
+.infobox h2 {
+    border-bottom:1px solid #C4C4C4;
+    font-size:16px;
+    font-weight:bold;
+    padding:10px !important;
+    text-transform:uppercase;
+}
+.infobox p,
+.infobox ul,
+.infobox table,
+.infobox h3 {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+#feedback .infobox {
+    float: none !important;
+    margin-top: 10px;
+}
+#feedback .infobox a{
+    padding-left: 10px;
+}
+#feedback .infobox p a {
+    padding-left: 0;
+}
+.shadow{
+    background-image: url(../gfx/bakgrunner/shadow.png);
+    background-repeat: no-repeat;
+    margin-right: -10px;
+    padding-right: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.col6 .shadow{
+    background-position: 307px 10px;
+}
+.col5 .shadow{
+    background-position: 252px 10px;
+}
+.listings .result .cottage-type,
+.listings .result .service-level,
+.listings .result .opening-servicelevel {
+    text-transform: capitalize;
+}
+.listings .result .cottage-type-dnt img {
+    width: 25px;
+    height: 25px;
+}
+.print_button {
+    display: block;
+    margin: 2ex 0 1ex 0;
+}
+.addthis_toolbox span {
+    font-size: 11px;
+    float: left;
+}
+.print a {
+    float: left;
+    padding: 0 10px 0 20px;
+    border-right: 1px solid #ccc;
+    background: url(../gfx/knapper/printer.png) no-repeat left 50%;
+    font-size: 11px;
+    color: #000;
+    line-height: 16px;
+}
+.print a:hover {
+    text-decoration: none;
+}
+.tools {
+	float: right;
+	margin: 5px  0 6px 0;
+	width: 310px;
+}
+.polopoly-article .tools {
+    margin: 0 !important;
+}
+.intro-element-article .tools {
+    position: relative;
+    left: 15px;
+}
+.social {
+    float: right;
+    width: 150px;
+}
+.social .print a {
+    margin-right: 10px;
+}
+.addthis_button_twitter {
+    padding-right: 0 !important;
+    }
+.comment-column {
+    clear: both;
+    display: block;
+    float: none;  
+}
+.selected {
+    font-weight: bold;
+}
+.not-found {
+    padding: 0 10px 10px;
+}
+.modify-date {
+    color: #888;
+    margin-top: 10px;
+}
+.modify-date span {
+    font-weight:bold;
+}
+.fallback #feedback {
+    margin-top: 10px;
+}
+/**FRONTPAGE FOCUS MAP***/
+
+.frontpage-focus-map{
+    overflow:hidden;
+    display: block;
+    margin-bottom: 10px;
+    margin-right: -10px;
+    margin-top: -16px;
+    position: relative;
+}
+.frontpage-focus-map.shadow{
+    background-position: 307px 30px;
+}
+.frontpage-focus-map .map-slug{
+    background: url(../gfx/knapper/turkart.png) no-repeat left top;
+    width:310px;
+    height:216px;
+    display: block;
+    padding:0;
+    margin:0;
+    border:0;
+}
+.frontpage-teaser.shadow, .frontpage-teaser2.shadow {
+    background-position: 307px 30px;
+}
+.frontpage-teaser a {
+    background: url(http://static-1.ut.no/komdegut/frontpage-teaser.png) no-repeat left top;
+    width:310px;
+    height:310px;
+    display: block;
+    padding:0;
+    margin:0 0 10px ;
+    border:0;
+}
+.frontpage-teaser2 a {
+    background: url(http://static-1.ut.no/komdegut/frontpage-plug.png) no-repeat left top;
+    width:310px;
+    height:310px;
+    display: block;
+    padding:0;
+    margin:0 0 10px 0;
+    border:0;
+}
+label.new{
+	background: transparent url(../gfx/ikoner/new.png) no-repeat right top;
+	padding-right:34px;
+}
+/*
+
+.frontpage-focus-map a {
+    background: url(../gfx/knapper/turkart.png) no-repeat left 50%;
+}
+.frontpage-focus-map {
+    background: url("../gfx/bakgrunner/shadow.png") no-repeat scroll 307px 20px transparent;
+    display: block;
+    margin-bottom: 20px;
+    margin-right: -10px;
+    margin-top: -14px;
+    position: relative;
+}
+.frontpage-focus-map .map{ 
+    height: 372px;
+}
+.frontpage-focus-map .direct_link * {
+    font-size: 24px;
+    color: white;
+    display: block;
+}
+.direct_link a {
+    text-align: center;
+    position: relative;
+    margin-top: -40px;
+}
+
+*/
+
+/* http://ut.no/style/supertagger.css */
+/* toChecklist (jquery checklist plugin) */
+div.checklist, div.checklistHighlighted {
+    overflow-y: auto;
+    overflow-x: hidden; /* If you don't want scrollbars, leave this one blank. */
+}
+div.checklist {
+    border: 1px solid gray;
+    border-left: 3px solid #ccc;
+    color: #555;
+    font-family: arial;
+    font-size: 12px; 
+    line-height: 1.6em;
+}
+div.checklistHighlighted {
+    border: 1px solid gray;
+    border-left: 3px solid #ffffa7;
+}
+ul.checklist {
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0;
+}
+div.checklist li {
+    padding: 3px;
+    margin-left: 0px;
+}
+div.checklist li.even {
+    background-color: white;
+}
+div.checklist li.odd {
+    background-color: #f7f7f7;
+}
+div.checklist li.even:hover,
+div.checklist li.odd:hover,
+div.checklist li.focused,
+div.checklist li:hover label {
+    background-color: #dde;
+}
+div.checklist li.checked {
+    background: #ffffa7;
+    font-style: italic;
+}
+div.checklist li.checked:hover,
+div.checklist li.checked:hover label {
+    background: #ffff22;
+    font-style: italic;
+}
+div.checklist label.disabled {
+    color: #ddd;
+}
+div.checklist li input {
+    display: block;
+    float: left;
+}
+div.checklist label {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+div.checklist label.leaveRoomForCheckbox {
+    display: block;
+    padding-left: 25px; /* If hiding checkboxes, set padding-left to 3px */
+}
+ul.showSelectedItems {
+    color: #770;
+    font-size: .8em;
+    list-style-position: outside;
+    margin-left: 0;
+    padding-left: 1.4em;
+}
+/* supertagger */
+.supertagger {
+    position: relative;
+    border: none;
+}
+.supertagger a {
+    text-decoration: none;
+}
+.supertagger h3 {
+	padding: 5px;
+	margin: 0;
+	color: #000;
+	border: none;
+}
+.supertagger .map {
+	background: #af8;
+}
+.supertagger .list {
+	background: #0dbed3;
+}
+.supertagger .list.seasons select {
+	height: 120px;
+}
+.supertagger .list.topics select {
+	height: 280px;
+}
+.supertagger .list.locations select {
+	height: 400px;
+}
+#supertagger-map-geopos-form ,#supertagger-map-search-form {
+    display: inline;
+}
+#supertagger-map-geopos-form input {
+    width:80px;
+}
+#supertagger-map-search-form input.address{
+    width: 150px;
+}
+/*
+The supertagger is highly ajaxified, and thus special considderations must be made with respect to styling/css.
+First of all it consists of a number of "components" the can be switched on or off, and the switching happens AFTER the HTML/CSS is generated.
+The switching happens by adding/removing the css class "active" on the component HTML elements. In the original HTML the active class will be missing.
+The following two statements will ensure this:
+*/
+.supertagger .map,
+.supertagger .list {
+    display: none;
+}
+.supertagger .map.active,
+.supertagger .list.active {
+    display: block;
+}
+.admin ul li {
+    list-style: none;
+    display: block;
+    float: left;
+    padding: 3px;
+    margin: 0;
+}
+/*BUGFIX: the hidden map in supertagger will break if this is not in place */
+#admin-kart-google {
+	width: 475px;
+	height: 475px;
+	position: relative;
+	background: red;
+}
+.admin-checklist {
+	width: 100%;
+}
+.spinner {
+	width: 220px;
+	height: 19px;
+	background: url(../gfx/ikoner/lastindikator/horisontal_220x19.gif) no-repeat;
+	color: red;
+	text-align: center;
+	font-weight: bold;
+	text-decoration: blink;
+	display: none;
+}
+#slettcache {
+	position: absolute;
+	top: 0;
+	left: 300px;
+}
+/* http://ut.no/style/temacarousel.css */
+/*Temakarusell*/
+.carousel a.all-trips {
+    bottom: 150px;
+    left: 800px;
+    position: relative;
+}
+.carousel a.prev,
+.carousel a.next {
+	width: 16px;
+	height: 113px;
+	/*height: 214px*/
+	display: block;
+	text-decoration: none;
+	padding: 0;
+	margin: 0 9px 0 0;
+	background-image: url(../gfx/knapper/carousel_prev.png);
+	background-position: center center;
+	float: left;
+}
+.carousel a.next {
+	background-image: url(../gfx/knapper/carousel_next.png);
+	margin: 0 0 0 9px;
+}
+.carousel a.prev.disabled {
+	background-image: url(../gfx/knapper/carousel_prev_disabled_small.png);
+}
+.carousel a.next.disabled {
+	background-image: url(../gfx/knapper/carousel_next_disabled_small.png);
+}
+.carousel .frame {
+    overflow: auto;
+	display: block;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+    width: 920px;
+    height: 113px;
+    float: left;
+    position: relative;
+}
+.carousel .content {
+	position: relative;
+    width: 5000px;
+    height: 113px;
+    display: block;
+    float: none;
+}
+.carousel .content div {
+    height: 113px;
+    width: 235px;
+    display: block;
+    float: left;
+    padding: 0;
+    margin: 0;    
+}
+.carousel .content a {
+    text-decoration: none;
+    color: #fff;
+}
+.carousel .content h4 {
+    color: #fff;
+    position: relative;
+    border: none;
+    z-index: 99;
+    width: 215px;
+    margin-left: 7px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    bottom: 20px; 
+}
+.carousel .content .bg {
+    background: #000;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    width: 215px;
+    height: 25px;
+    position: absolute;
+    bottom: 0px;
+}
+.carousel .content .upcoming {
+   padding-right: 0 !important;
+}
+/* http://ut.no/style/warnings.css */
+.warning { 
+    border: 3px solid #900;
+    margin: 0;
+    width: 985px;
+    margin-left: -20px;
+    padding: 10px;
+    background: #fcc;
+    color: #000;
+}
+.warning h1 {
+    margin: 8px;
+    padding: 0;
+	text-transform: none;
+	border: 0;
+	color: #000;
+	font-weight: bold;
+}
+.warning p,
+.warning a {
+    margin: 8px;
+    padding: 0;
+    font-size: 20px;
+}
+.warning ul {
+    margin: 0;
+    padding: 0;
+    float: left; 
+    display: block;
+}
+.warning li {
+    display: inline;
+}
+.warning * li a {
+    float: left;
+    text-decoration: none;
+    font-weight: bold;
+    color: #006;
+    background: transparent url(../gfx/ikoner/nettlesere/opera_logo_24x24_green.png) center left no-repeat;
+    display: inline-block;
+    padding-left: 24px;
+    padding-right: 10px;    
+}
+.warning * li a:hover {
+    text-decoration: underline;
+}
+.warning * li a:hover {
+	text-decoration: underline;
+}
+.warning * li a.opera_link{ background-image:url(../gfx/ikoner/nettlesere/opera_logo_24x24_green.png) !important; }
+.warning * li a.firefox_link{ background-image:url(../gfx/ikoner/nettlesere/firefox_logo_24x24_green.png)!important; }
+.warning * li a.chrome_link{ background-image:url(../gfx/ikoner/nettlesere/chrome_logo_24x24_green.png)!important; }
+.warning * li a.ie_link{ background-image:url(../gfx/ikoner/nettlesere/ie8_logo_24x24_green.png)!important; }
+#secret_warning {
+	border-color: #900;
+	background-color: #fcc;
+}
+#anti_ie{
+	border-color: #090;
+	background-color: #cfc;
+}
+/* http://ut.no/style/feedback.css */
+/* feedback */
+#feedback a.nrkbeta {
+	background: url(../gfx/knapper/nrkbeta.jpeg) no-repeat;
+	padding: 9px 0 6px 98px;
+	display: block;
+	margin: 15px 0;
+}
+/*#feedback h2 {
+	margin: 10px 0 0;
+	text-transform: uppercase;
+	font-size: 19px;
+	font-weight: bold;
+}*/
+#feedback label {
+	display: inline;
+	margin: 4px 0;
+}
+#feedback input {
+    width: 220px !important;
+}
+#feedback-comment,
+#feedback-name,
+#feedback-email,
+#feedback-web {
+    float: right;
+}
+#feedback .required {
+    background: transparent url(../gfx/ikoner/required.png) center right no-repeat;
+    display: inline-block;
+    padding-right: 10px;   
+}
+.explain {
+    color: #999; 
+}
+#feedback textarea,
+#feedback input {
+	border: 1px solid #bbb;
+	background: #fff;
+	width: 280px;
+	margin: 0 0 4px;
+	padding: 4px;
+}
+#feedback input#send {
+	background: url(../gfx/knapper/submit.png) no-repeat right top;
+	text-align: right;
+	overflow: visible;
+	font-weight: bold;
+	padding: 2px 15px;
+	cursor: pointer;
+	height: 20px;
+	width: 255px !important;
+	border: 0;
+	font-size: 12px;
+}
+#feedback input:active {
+	background-position: bottom;
+}
+#feedback #directContact {
+	margin-top: 20px;
+}
+#feedback p.view_all {
+    float: left;
+    display: block;
+}
+#feedback-comments p {
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+#feedback-comments dd {
+	border-bottom: 1px solid #eee;
+	margin: 0 0 15px;
+    padding: 5px 0 20px;
+}
+#feedback-comments .replies {
+    /*background: url(../gfx/bilder/tull/frog-40x80.jpg) left top no-repeat;*/
+    margin: 10px 0 0 40px;
+   /* padding-left: 40px;*/
+   background: #ffffee;
+   border-color: #FCF3CF #ebe3c1 #ebe3c1 #FCF3CF;
+   border-style: solid;
+   border-width: 1px;
+   width: 480px;
+   padding: 5px;
+}
+#feedback-comments .replies .moderation.report{
+    display: none;
+}
+#feedback-comments .replies dd {
+    border: 0 !important;
+    padding: 0;
+    margin: 0;
+}
+#feedback-comments .replies h4 {
+    text-transform: none;
+    border-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+#feedback-comments .gravatar{
+    float: left;
+    padding-right: 10px;
+    display: inline;
+}
+#feedback-comments .content, 
+#feedback-comments .replies, 
+#feedback-comments .admin{
+    display: block;
+}
+#feedback-comments .admin {
+    margin: 10px 0 0 0;
+}
+#feedback-comments .content {
+    min-height: 60px;
+}
+#feedback-comments dl {
+    margin: 0;
+}
+/* Unsure if this destroys something beautiful */
+.error {
+    color:  #d33;
+}
+.feedback-link {
+    margin-left:10px;
+    position:relative;
+    top:-30px;
+}
+.feedbackwrapper {
+    background: #e3e1d9;
+    padding:0 10px 20px;
+}
+#feedback .infobox p {
+    margin-top: 10px;
+}
+#feedback .infobox h2 {
+    margin-bottom: 10px !important;
+}
+/* http://ut.no/style/calendar.css */
+@charset "UTF-8";
+/* @override http://malxtest02/ut/style/calendar.css */
+/* Calendar main page activity listing*/
+.activity-list a.all {
+	float: right;
+	position: relative;
+}
+.calendar-core a.all {
+    margin-left: 145px;
+    white-space: nowrap;
+}
+.calendar-core label {
+    display: none;
+}
+.activity-list ul {
+	margin: 5px 0 0 0 !important;
+	display: block;
+	padding-bottom: 40px;
+	list-style-type: none;
+}
+.activity-list ul li {
+	margin: 0;
+	display: block;
+	position: relative;
+	zoom: 1;
+	min-height: 44px;
+	white-space: normal;
+	width: 100%;
+    margin-bottom: 4px;
+}
+.activity-list ul li .minicalendar {
+    position: relative;
+    float: left;
+	width: 48px;
+	height: 40px;
+	color: #fff;
+	background: url("../gfx/bakgrunner/calender.png") no-repeat 3% center;
+}
+.activity-list ul li .content {
+	position: relative;
+	margin-left: 60px;
+}
+.activity-list ul li div.month {
+	font-size: 10px;
+	display: block;
+	text-align: center;
+}
+.activity-list ul li div.day {
+	font-size: 22px;
+	text-align: center;
+	display: block;
+	margin: -4px;
+}
+.activity-list ul li a {
+	display: block;
+}
+#activity-calendar-article h2 {
+    margin: 10px 0 0 20px !important;
+}
+p.none {
+	padding: 10px;
+	white-space: nowrap;
+}
+/*calendar main page datepicker*/
+.date-select.datepicker {
+	width: 300px;
+}
+.date-select.datepicker td,
+.date-select.datepicker th {
+	width: 48px;
+	height: 32px;
+}
+.date-select.datepicker .ui-datepicker-prev {
+	display: block;
+	width: 40px;
+	height: 20px;
+	float: left;
+}
+.date-select.datepicker .ui-datepicker-next {
+	display: block;
+	width: 40px;
+	height: 20px;
+	float: right;
+}
+.date-select.datepicker .ui-datepicker-title {
+	width: 300px;
+	height: 20px;
+	display: block;
+	text-align: center;
+	float: left;
+}
+.date-select.datepicker .ui-datepicker-calendar {
+	display: block;
+	float: left;
+}
+.date-select.datepicker td a
+,.date-select.datepicker th a {
+	background: #e3E1d9;
+	width: auto;
+	height: auto;
+	display: block;
+	text-align: center;
+}
+.date-select.datepicker a.ui-state-active {
+	background: #d72920;
+	color: #fff !important;
+	font-weight: bold;
+}
+.activity h1 {
+    text-transform: none;
+    border-bottom: none !important;
+    font-size: 30px;    
+}
+.facts-activity {
+    background-color: #e3E1d9;
+    border: 1px solid #e1e1e1;
+    padding: 5px;
+}
+.facts-activity h3 {
+	font-weight: bold;
+}
+/* make sure headings with form elements look tidy*/
+.calendar-core h4 input, 
+.calendar-core h4 select {
+	height: 1.5em;
+}
+/* Ajustments in layour for calender tool (#calendar-main)*/
+.activity-calendar-frontpage .calendar-core {
+    width: 310px;
+}
+.calendar-core .location-select {
+    display:inline;
+    height:30px;
+    margin:15px 5px 10px 0;
+    padding:4px;
+    width:140px;
+}
+.calendar-core .topic-select {
+    display:inline;
+    float:left;
+    height:30px;
+    margin:15px 15px 0 0;
+    padding:4px;
+    width:150px;
+}
+.calendar-core .activity-list {
+    border-top: 1px solid #9E9d97;
+    margin: 0 20px;
+    clear: both;
+    min-height: 1px;
+}
+#calendar-main .calendar-core {
+	width: 640px;
+	clear: none;
+	float: left;
+	margin-right: 5px;
+	background: #e3e1d9;
+}
+#calendar-main .calendar-sidebar {
+    width: 300px;
+    clear: none;
+    float: left;
+    margin-left: 15px;
+}
+#calendar-main .calendar-core h2 {
+    width: 285px;
+}
+#calendar-main .activity-list ul li {
+    height: auto !important;
+}
+.calendar-core h2 {
+    text-transform: uppercase;
+    display:inline;
+    float:left;
+    text-transform:uppercase;
+    width:100px;
+    margin: 18px 0 0 10px;
+    border: 0;
+}
+.topic .calendar-core h2 {
+    width: 130px;
+}
+.calendar_location {
+    float: right;
+    padding-top: 20px;
+    width: 120px;
+    margin-right: 15px;
+}
+#activity-calendar-frontpage h2 {
+    display:inline;
+    float:left;
+    margin-left:8px !important;
+    width:115px;
+}
+#activity-calendar-frontpage .calendar-core .location-select {
+width:150px;
+}
+#calendar-main .activity .summary {
+    clear: none;
+}
+.activity .summary {
+    clear: both;
+}
+.infobox .calendar_location {
+    margin-left: 0 !important;
+}
+#activity-calendar-cottage .infobox h2 {
+    padding: 0 !important;
+}
+#calendar-main .infobox p {
+    margin-left: 0 !important;
+}
+/* http://ut.no/style/trip.css */
+/*turforslag*/
+.trip h3 {
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: none;
+    margin: 10px 0 0 ;
+    padding: 0;
+}
+.trip ul {
+    margin: 0;
+}
+.trip li {
+    margin-left: 0;
+}
+.trip .facts-trip {
+    background-color: #e3e1d9;
+    border: 1px solid #e1e1e1;
+    padding: 4px;
+    margin-bottom: 10px;    
+}
+.trip .summary {
+    font-weight: bold;
+}
+.tripmap {
+	/*height: 285px;*/
+	background-color: #fff;
+}
+.tripmap img {
+	background-position: center;
+}
+.tripmap.open {
+    width: 960px;
+    height: 530px;    
+}
+.trip ul {
+    list-style-type: none;
+}
+.facts-trip ul li span {
+    font-weight: bold;
+}
+.facts-trip {
+    background-color: #EEEEEE;
+    border: 1px solid #E1E1E1;
+    padding: 4px;
+}
+.trip .infobox h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 6px;
+    padding-top: 4px;
+    padding-left: 30px;
+}
+.trip .location h3 {
+    background: transparent url(../gfx/ikoner/ut/bullet-kompass.png) no-repeat;
+}
+.trip .location span {
+    font-weight: bold;
+}
+.trip .arrival {
+   padding-left: 10px; 
+   padding-right: 4px;
+    }
+.trip .arrival h3 {
+    background: transparent url(../gfx/ikoner/ut/bullet-blink.png) no-repeat;
+    margin-left: 0 !important;
+}
+.trip ul {
+    list-style-type: none;
+}
+.trip-listing-facet {
+    margin-bottom:  16px;
+}
+.trip-listing-facet h4 {
+    border: 0;
+    text-transform: none;
+    font-weight: bold;
+    padding-top: 2px;
+}
+.trip-listing-facet li {
+    padding-left: 10px;
+}
+.trip p {
+    clear: both;
+}
+.trip ul.result li {
+    display: block;
+    overflow: hidden;
+    margin: 0 0 10px 0 !important;
+}
+.trip .result .textual p {
+    clear: none !important;
+}
+/* http://ut.no/style/artikkel.css */
+@charset "UTF-8";
+/*Rammen rundt artikkelen*/
+.wide-content {
+    margin: 10px 0 0;
+}
+.polopoly-article h1,
+.polopoly-article h1 *, 
+.polopoly-article h2, 
+.polopoly-article h2 * {
+    background-color: transparent;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+.polopoly-article .article h2, 
+.polopoly-article .article h2 p {
+    font-size: 20px;
+    margin: 14px 0 2px;
+    padding: 0;
+}
+.article h2 {
+    border: none !important;
+    text-transform: none;
+}
+.article h2 p {
+    text-transform: none;
+}
+/*Selve artikkelen*/
+.polopoly-article .article {
+    background-color: transparent;
+    color: inherit;
+    float: left;
+    margin: 2px 0;
+    overflow: hidden;
+    padding: 0;
+    width: 650px;
+    text-align: left;
+}
+/*Selve artikkel paragrafene */
+.polopoly-article .article p {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0 0 14px;
+    padding: 0;
+    background-color: transparent;
+    color: inherit;
+}
+/*Bilder*/
+.img-center {
+    clear: both;
+}
+.img-center img,
+.img-left img,
+.img-right img {
+    display: block;
+    margin: 0;
+    padding: 0 !important;
+}
+/*mangler på stage*/.img-right p, 
+.img-left p, 
+.img-center p {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+.img-right {
+    clear: right;
+    display: block;
+    float: right;
+    margin: 0 0 10px 4px !important;
+    overflow: hidden;
+    padding: 0;
+}
+.article ol {
+    display: block;
+    list-style-position: outside;
+    list-style-type: decimal;
+    margin: 0 0 12px;
+    padding: 0;
+}
+.img-left {
+    clear: left;
+    display: block;
+    float: left;
+    margin: 0 10px 0 4px;
+    overflow: hidden;
+    padding: 0;
+}
+.img-center {
+    clear: both;
+    display: block;
+    float: none;
+    margin: 0 0 4px;
+    overflow: hidden;
+    padding: 0;
+}
+/*Bilde rammer*/
+.polopoly-article .img-center p,
+.polopoly-article .img-left p,
+.polopoly-article .img-right p,
+.polopoly-article .img-center address,
+.polopoly-article .img-left address,
+.polopoly-article .img-right address,
+.polopoly-article .article .img-center p,
+.polopoly-article .article .img-left p,
+.polopoly-article .article .img-right p,
+.polopoly-article .article .img-center address,
+.polopoly-article .article .img-left address,
+.polopoly-article .article .img-right address,
+.polopoly-article .video p {
+    width:auto;
+}
+.polopoly-article address {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.polopoly-article .img-center p,
+.polopoly-article .img-left p,
+.polopoly-article .img-right p,
+.polopoly-article .img-center address,
+.polopoly-article .img-left address,
+.polopoly-article .img-right address,
+.polopoly-article .article .img-center p,
+.polopoly-article .article .img-left p,
+.polopoly-article .article .img-right p, 
+.polopoly-article .article .img-center address, 
+.polopoly-article .article .img-left address,
+.polopoly-article .article .img-right address,
+.polopoly-article .video p {
+    font-size: 11px;
+    font-weight: normal;
+    position: relative;
+}
+/*mangler på stage*/.img-right address, 
+.img-left address, 
+.img-center address {
+    border-top: none !important;
+}
+/*Byline*/
+.article-info {
+    width: 650px;
+    display: inline-block;
+    float: left;
+    margin-bottom: 0 !important;
+}
+ul.byline {
+    display: inline;
+    font-size: 11px;
+    list-style-type: none;
+    margin-bottom: 0;
+    width: 100%;
+}
+ul.byline li {
+    margin-left: 0;
+    margin-right: 10px;
+    float: left;
+}
+ul.byline  address {
+    font-style: normal;
+    margin: 0 0 0 5px;
+}
+.published em {
+    float: left;
+    display: inline;
+    font-size: 11px;
+    font-style: normal;
+}
+.polopoly-article .addthis_toolbox {
+    float: right;
+    /*padding: 0 !important;
+    margin: 0 -18px 10px 0 ;*/
+}
+/*Faktaboks */
+
+/*hack for små intro-element på forsiden, taes bort når kaleido er på plass*/
+.intro-element.col3 {
+    width: 205px;
+}
+.intro-element-article p {
+    width: 650px;
+    margin: 0;
+    font-family: "Trebuchet MS", Sans-Serif;
+    font-size: 15px;
+    font-weight: bold;
+    clear: both;
+}
+.polopoly-article .intro-element {
+    background-color: #FFFFFF;
+    border: 1px solid #D2D2D2;
+    color: inherit;
+    display: block;
+    height: auto;
+    margin: 0 0 8px !important;
+    padding: 2px 2px 1px;
+}
+.polopoly-article .news_front .intro-element {
+    border: 0 !important;
+}
+.polopoly-article .facts-center .intro-element,
+.polopoly-article .facts-left .intro-element,
+.polopoly-article .facts-right .intro-element {
+    background-color: #F4F2E9;
+}
+.polopoly-article .facts-center {
+    clear: both;
+}
+.polopoly-article .facts-center,
+.polopoly-article .facts-left,
+.polopoly-article .facts-right {
+    background-color: transparent;
+    color: inherit;
+    font-size: 0.9em;  
+}
+.polopoly-article .facts-center .intro-element p,
+.polopoly-article .facts-left .intro-element p,
+.polopoly-article .facts-right .intro-element p {
+    margin: 0;
+}
+.polopoly-article .facts-center h3,
+.polopoly-article .facts-left h3,
+.polopoly-article .facts-right h3 {
+    margin-bottom: 0 !important;
+    font-size: 12px;
+}
+.polopoly-article .facts-right {
+    clear: right;
+    float: right;
+    margin: 4px 0 4px 4px;
+    padding: 0;
+    width: 180px !important;
+}
+.polopoly-article .article h3,
+.polopoly-article .article h4 {
+    clear: both;
+}
+.polopoly-article .article ul,
+.location-page .location-desc ul
+ {
+  list-style-type: disc !important;
+}
+.polopoly-article .article h3,
+.polopoly-article .article-column h3,
+.polopoly-article .article h4,
+.polopoly-article .article-column h4 {
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 10px;    
+}
+.wide-content .article-column {
+    background-color: transparent;
+    color: inherit;
+    float: left;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 0 2px 0;
+    width: 174px;
+    position: relative;
+    right: -5px;
+}
+/*headerer*/
+.polopoly-article h1 {
+	font-size: 36px;
+    border-bottom: none;
+    text-transform: none;
+    font-weight: normal;
+}
+.news_front .first {
+    clear: left;
+}
+.intro-element p {
+    font-size: 12px;
+    color: #333 !important;
+    position: relative;
+    margin: 0;
+}
+.intro-element h2 {
+    font-size: 17px;
+    color: #333 !important;
+    text-transform: none;
+    border: none;
+    position: relative;
+    display: block;
+    z-index: 99;
+    padding: 6px 0 0 0;
+    margin: 0;
+    overflow: hidden;
+}
+.intro-element a:hover {
+    text-decoration: none;
+}
+.intro-element-small {
+    width: 210px;
+    float: left;
+    height: auto;
+    margin: 0 3px 0 0;
+    min-height: 270px;
+}
+.polopoly-article .news_front .intro-element-small {
+    width: 200px;
+    margin-right: 9px !important;
+}
+.intro-element {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.intro-element .caption{
+	margin-right: 10px;
+}
+.intro-element .caption h2 a {
+    color: #000;
+}
+.intro-element.col12 img, 
+.intro-element.col12 .caption {
+	/*width:310px;  HACK: find a better way to scale image*/
+	clear: none;
+	float: left;
+}
+.intro-element-wide {
+    width: 640px;
+    overflow: hidden;
+    margin: 0 0 20px;
+}
+.intro-element-wide h2 {
+    font-size: 32px;
+}
+.intro-element-small h2 {
+    width: 200px;/*endre størrelse når kaleidobilder taes i bruk*/
+    position: relative;
+    height: auto;
+}
+/*høyreside i artikler, tilknyttede elementer*/
+.associated {
+    margin-bottom: 10px;
+}
+.associated ul {
+    list-style-type: none;
+}
+.associated ul li {
+    margin-left: 0;
+    padding: 3px 0;
+}
+.associated ul li a span {
+    display: inline !important;
+}
+.associated ul li span {
+    display: block;
+}
+/*associatede ruter og hytter i artikler*/
+.associated h3 {
+    font-size: 16px;
+    padding-top: 0;
+}
+.polopoly-article .map {
+    margin-top: -5px;
+}
+.polopoly-article .map h2{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+.list-light ul {
+    list-style-type: none;
+}
+.list-light ul li {
+    margin: 0 0 5px 5px;
+    border-bottom: 1px dotted #d2d2d2;
+}
+.icon-video-archive {
+    background: transparent url(http://fil.nrk.no/contentfile/web/icons/video-icon-pos-12.png) no-repeat scroll 2px 3px;
+    padding-left: 20px;
+}
+.icon-sound-archive, 
+.icon-radio-archive {
+    background: transparent url(http://fil.nrk.no/contentfile/web/icons/audio-icon-pos-12.png) no-repeat scroll 3px 4px;
+    padding-left: 20px;
+}
+.icon-imagegallery-black, 
+.icon-gallery {
+    background: transparent url(http://fil.nrk.no/contentfile/web/icons/imagegallery_black.gif) no-repeat scroll 3px 3px;
+    padding-left: 21px !important;
+}
+.icon-pdf-black {
+    background: transparent url(http://fil.nrk.no/contentfile/web/icons/pdf-icon.png) no-repeat scroll 3px 2px;
+    padding-left: 20px !important;
+}
+/* Problems with brightcove  vvideo element
+object {
+    width: 650px !important
+}
+*/
+object {
+    display: block;
+    clear: both;
+}
+.topic .intro-element-article img {
+    margin-top: 20px;
+    width: 423px;
+    height: 240px;
+}
+.topic .intro-element-article address, .topic .intro-element-article p {
+    display: none;
+}
+.topic .crop-img {
+    width: 310px;
+    height: 240px;
+    overflow: hidden;
+    margin-top: -20px;
+}
+.list-light {
+    width: 650px !important;
+}
+ .list-light .list-light {
+	display: none;
+}
+.list-light.article-links {
+	display: none;
+}
+.basics .published, .basics .addthis_toolbox {
+    display: none;
+}
+.front12 {
+    width: 640px;
+}
+.front4 {
+  float: left;
+  width: 200px;
+  margin-right: 10px;  
+}
+/*.subject-article .image img{
+  padding: 0 4px 4px;  
+}*/
+.article .img-right p, .article .img-left p {
+    line-height: 1.2;
+}
+/*scrapestyle*/
+ul.byline li address a {
+    color: #d72920;
+}
+ul.byline {
+    display: inline;
+    font-size: 11px;
+    margin-bottom: 0;
+    width: 100%;
+    border: none !important;
+}
+.polopoly-article a.mytrip_add_to_cart {
+    margin:0 !important;
+    top: 0 !important;
+}
+.polopoly-article .social {
+    float: right;
+    margin-left: 10px;
+}
+.polopoly-article .addthis_toolbox {
+    float:left;
+}
+.polopoly-article .article h3, .polopoly-article .article-column h3, .polopoly-article .article h4, .polopoly-article .article-column h4 {
+    color: #000;
+}
+.article .poll, .article .pp-form {
+    /*width: 462px;*/
+    background-color: #f4f2e9;
+    border: 1px solid #d1d1d1;
+}
+.article .pp-form .w8, .article .pp-form .w24 {
+    width: 306px !important;
+}
+.article h3.table-heading {
+    border-top: 1px solid #d2d2d2;
+    border-left: 1px solid #d2d2d2;
+    border-right: 1px solid #d2d2d2;
+    margin: 0 !important;
+    width: 462px;
+}
+table.pptable {
+    border:1px solid #d2d2d2;
+    border-collapse:separate;
+    border-spacing:1px;
+    caption-side:top;
+    display:table;
+    empty-cells:show;
+    font-size:11px;
+    margin:0 0 8px;
+    padding:0;
+    table-layout:auto;
+    width: 464px;    
+}
+table.pptable tr {
+    background-color: #f7f4ea !important;
+}
+table.pptable td {
+    padding-left: 4px;
+}
+.polopoly-article .facts-center ul li, 
+.polopoly-article .facts-left ul li, 
+.polopoly-article .facts-right ul li {
+    background-color:transparent;
+    border-left:4px solid #e1d9bf;
+    color:#000000;
+    display:block;
+    font-weight:normal;
+    line-height:1.2em;
+    list-style-position:outside;
+    list-style-type:none;
+    margin:0 0 6px;
+    overflow:hidden;
+    padding:0 0 0 4px;
+}
+.article table th, .wrapper-inner table th, .wide-content table th, .content table th, .inner-column table th, .outer-column table th {
+    background-color:#e1dbc9;
+}
+.intro-element-article em {
+    font-size:9px;
+    font-style:normal;
+    text-align:left;
+}
+.galileo {
+    clear: both;
+    display: block;
+    margin-top: 20px;
+}
+.article blockquote {
+    background:none repeat scroll 0 0 #FCFBF9;
+    border-bottom:1px dashed #D2D2D2;
+    border-top:1px dashed #D2D2D2;
+    padding:10px 10px 4px;
+    background-color:#F4F2E9;
+    clear:both;
+    color:#333333;
+    margin:0 3px 12px;
+}
+.article blockquote address {
+    font-size:11px;
+    margin-right:4px;
+    font-style: normal;
+    text-align: right;
+}
+.article blockquote p, .article blockquote strong {
+    font-style:italic;
+    font-weight:normal;
+    font-size: 120%
+}
+.article .recipe-meta {
+background:none repeat scroll 0 0 #fcfbf9;
+}
+.recipe .suitable-for, .recipe .recipe-facts {
+background:none repeat scroll 0 0 #fcfbf9;
+}
+#fb_share, .twitter-share-button {
+    display: none;
+}
+/* http://ut.no/style/map.css */
+@charset "UTF-8";
+/*********** GENERAL MAP **********/
+/* average map color is: #ccd696 */
+.map {
+    padding: 0 !important;
+}
+/* Kart-relatert */
+.noshow {
+	display: none;
+}
+.no_map {
+	display: block;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+	background: url(../gfx/bakgrunner/kart_mangler.png) no-repeat center center;
+	float: left;
+	width: 100% !important;
+	height: 150px;
+}
+/*********** FOCUS MAP ************/
+/* focus map iself*/
+.map-focus .map {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+}
+/************ MAP TOOL ************/
+/* tool map itself */
+.map-tool {
+    position: relative;
+}
+.map-tool .map {
+    width: 100%;
+    height: 832px;
+}
+.map-tool select {
+    width: 145px;
+}
+/*Make sure areas (dnt layers) look like clickable in IE*/
+.map-tool area {
+    cursor: hand !important;
+    cursor: pointer !important;
+}
+.map-tool .mapoptions {
+	width: 145px;
+	display: inline;
+	float: left;
+    padding: 5px;
+	font-size: 100%;
+	clear: none;
+	vertical-align: baseline;
+	margin: 0;
+}
+.map-tool .mapoptions ul {
+    padding: 0;
+    list-style: none;
+}
+.map-tool .layerselector li {
+    margin: 0;
+    vertical-align: middle;
+    padding-bottom: 2px;
+}
+.map-tool .ut-mapoptions input {
+    background-color: #FFF;
+    vertical-align: middle;
+}
+.map-tool .ut-map-bubble ul.result {
+    list-style-type: none;
+    width: 300px;
+    margin: 0 auto;
+}
+.map-tool .ut-map-bubble .result .thumbnail {
+    margin-top: 5px;
+}
+.map-tool .ut-map-bubble .readmore {
+    margin: 10px 0 0 10px;    
+}
+.map-tool .ut-map-bubble .ut-map-bubble-edit {
+     margin: 0 0 0 10px;  
+}
+.map-tool .ut-map-bubble ul.result li {
+    margin-left: 0;
+}
+.map-tool .article .result h3 {
+    display: none;
+}
+/* FULLSCREEN MAP EXTRAS */
+.map-tool.fullscreen {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background:white;
+    z-index: 999 !important;
+}
+.map-tool.fullscreen .print {
+    display: none;
+}
+.size-button {
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    cursor: pointer;
+    padding: 5px;
+}
+.map-container {
+    margin-right: 0;
+    display: inline;
+    float: left;
+    margin-left: 10px;
+}
+.map-container .map {
+	width: 805px;
+}
+.alternate-head {
+    display: none;
+}    
+.map-tool.fullscreen .alternate-head {
+    display: block;
+    height:60px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.map-tool.fullscreen .alternate-head .logo.ut {
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+.map-tool.fullscreen .alternate-head .logo.ut {
+    left: 15px;
+    top: 8px;
+}
+.map-tool.fullscreen .alternate-head .logo.dnt {
+    right: 20px;
+    top: 0;
+}
+.map-tool.fullscreen .alternate-head .logo.nrk {
+    right: 80px;
+    top: 15px;
+}
+.map-tool.fullscreen .alternate-head .home-link {
+    display: block;
+    position: absolute;
+    left: 175px;
+    top: 25px;
+    float: left;
+}
+.fullscreen .size-button {
+    background-image: url(../gfx/knapper/minimer.png);
+}
+.map-tool.fullscreen h2, 
+.map-tool.fullscreen .heading {
+    display: none;
+}
+#locationsearch-form .address {
+	width: 134px;
+}
+/* EXTENDED INFO WINDOWS */
+#gbubble_article_window {
+  width: 300px;
+}
+#gbubble_article_window_contents {
+  background-color: #FFF;
+  border: 3px solid  #900;
+}
+#gbubble_article_window_beak {
+  width: 28px;
+  height: 38px;
+  background: url('../gfx/images/corners/simple_beak.png') top left no-repeat transparent;
+}
+* html #gbubble_article_window_beak {
+  /* Alpha transparencies hack for IE */
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/corners/red_beak.png', sizingMethod='crop');
+}
+#gbubble_article_window_tl, #gbubble_article_window_tr, #gbubble_article_window_bl, #gbubble_article_window_br,
+#gbubble_article_window_t,#gbubble_article_window_l,#gbubble_article_window_r,#gbubble_article_window_b{
+  height: 0px;
+  width: 0px;
+}
+/* POI Tool actions*/
+ .poi_tool .init
+,.poi_tool .active
+,.poi_tool .save
+,.poi_tool .clear
+,.poi_tool .find{
+    display: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: 0 0.5em;
+    margin: 2px !important;
+    line-height: 1.5;
+    width: 120px;
+    float: left;
+    clear: none;
+}
+.ut-map-bubble form.poi-tool {
+    padding: 0;
+}
+.ut-map-bubble form.poi_tool .latitude,
+.ut-map-bubble form.poi_tool .longitude {
+    width: auto !important;
+}
+.poi_tool form p label {
+    float: left;
+}
+.poi_tool .init { 
+    background-image: url(../gfx/ikoner/ut/ny.png);
+    padding: 2px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+}
+.poi_tool .active { 
+    background-image: url(../gfx/ikoner/ut/kartnaal.png);
+    padding: 2px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+ }
+.poi_tool .save {
+    background-image: url(../gfx/ikoner/ut/ok.png);
+}
+.poi_tool .clear { 
+    background-image: url(../gfx/ikoner/ut/slett.png);
+    padding: 2px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+}
+.poi_tool .find { 
+    background-image: url(../gfx/ikoner/ut/finn.png);
+    padding: 2px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+}
+form.poi_tool {
+	border: 0;
+	margin: 0;
+}
+form.poi_tool .latitude,
+form.poi_tool .longitude {
+	width: 50px;
+    float: left;
+    border: 1px solid #bbb;
+    background: #fff;
+}
+
+/* LEGEND */
+.legend li {
+    padding: 2px 2px 5px 30px;
+    background-image: url(../gfx/ikoner/kart/legende-sprite.png);
+    background-repeat: no-repeat;
+    margin: 0 0 4px 0;
+    line-height: 0.5;
+}
+.legend .summer.trail {
+background-position: 0 5px;
+}
+.legend .winter.trail {
+background-position: 0 -15px;
+}
+.legend .serviced {
+background-position: 0 -35px;
+}
+.legend .selvserviced {
+background-position: 0 -55px;
+}
+.legend .unserviced {
+background-position: 0 -75px;
+}
+.legend .dry-snow {
+background-position: 0 -95px;
+}
+.legend .wet-snow {
+background-position: 0 -115px;
+}
+.legend .little-snow {
+background-position: 0 -135px;
+}
+.legend .dryland {
+background-position: 0 -155px;
+}
+/* FULLSCREEN MAP EXTRAS */
+.map-tool.fullscreen {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999 !important;
+    padding-left: 5px;
+}
+.size-button {
+    display: block;
+    width: 170px;
+    height: 32px;
+    background: transparent url(../gfx/knapper/fullskjerm.png) left center no-repeat;
+    cursor: pointer;
+}
+.map-container {
+    margin-right: 0;
+    display: inline;
+    float: left;
+    margin-left: 10px;
+}
+.alternate-head {
+    display: none;
+    height: 60px;
+}
+.map-tool.fullscreen .alternate-head {
+    display: block;
+}
+.map-tool.fullscreen .alternate-head .logo {
+    top: 0;
+}
+.map-tool.fullscreen .alternate-head.logo img {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.map-tool.fullscreen .alternate-head.logo.dnt_logo {
+    right: 0;
+}
+.map-tool.fullscreen .alternate-head.logo.nrk_logo {
+    right: 60px;
+    top: 0;
+}
+.map-tool.fullscreen .alternate-head .logo.ut_logo {
+    left: 5px;
+}
+.fullscreen .size-button {
+    background-image: url(../gfx/knapper/minimer.png);
+} 
+.map-tool .ut-map-activity-indicator  {
+	width: 16px;
+	height: 16px;
+    display: block;
+    float: left;
+    clear: none;
+    margin: 0;
+}
+.map-tool .ut-map-activity-indicator.active {
+	background: transparent url(../gfx/ikoner/lastindikator/rund_16x16.gif) center center no-repeat;
+}
+.poi-map .map {
+    height: 500px;
+}
+.ut-map-bubble h3 {
+    border-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+.map-tool .print a {
+    border: none;
+    padding: 20px;
+    margin-top: 0;
+}
+.mapoptions h3 {
+    margin-left: 0 !important;
+}
+.mapoptions label {
+    display: none;
+}
+.mapoptions .layerselector label {
+    display: inline;
+}
+/*.ut-map-bubble h3 {
+    background-repeat: no-repeat;
+    padding: 5px 0 0;
+}
+.ut-map-bubble h3 a {
+    margin-left: 20px;
+}
+.ut-map-bubble.attraksjon h3 {background-image: url(../gfx/ikoner/kart/liten/custom_attraksjon.png);}
+.ut-map-bubble.badeplass h3 {background-image: url(../gfx/ikoner/kart/liten/custom_badeplass.png);}
+.ut-map-bubble.dykkeplass h3 {background-image: url(../gfx/ikoner/kart/liten/custom_dykkeplass.png);}
+.ut-map-bubble.fiskeplass h3 {background-image: url(../gfx/ikoner/kart/liten/custom_fiskeplass.png);}
+.ut-map-bubble.fjelltopp h3 {background-image: url(../gfx/ikoner/kart/liten/custom_fjelltopp.png);}
+.ut-map-bubble.grotte h3 {background-image: url(../gfx/ikoner/kart/liten/custom_grotte.png);}
+.ut-map-bubble.kitested h3 {background-image: url(../gfx/ikoner/kart/liten/custom_kitespot.png);}
+.ut-map-bubble.klatrefelt h3 {background-image: url(../gfx/ikoner/kart/liten/custom_klatrefelt.png);}
+.ut-map-bubble.multemyr-og-annet-gull- h3 {background-image: url(../gfx/ikoner/kart/liten/custom_multemyr-og-annet-gull-.png);}
+.ut-map-bubble.padleperle h3 {background-image: url(../gfx/ikoner/kart/liten/custom_padleperle.png);}
+.ut-map-bubble.rasteplass h3 {background-image: url(../gfx/ikoner/kart/liten/custom_rasteplass.png);}
+.ut-map-bubble.søndagstur h3 {background-image: url(../gfx/ikoner/kart/liten/custom_søndagstur.png);}
+.ut-map-bubble.serveringssted h3 {background-image: url(../gfx/ikoner/kart/liten/custom_serveringssted.png);}
+.ut-map-bubble.ski-og-akebakke h3 {background-image: url(../gfx/ikoner/kart/liten/custom_ski-og-akebakke.png);}
+.ut-map-bubble.surfebølge h3 {background-image: url(../gfx/ikoner/kart/liten/custom_surfebølge.png);}
+.ut-map-bubble.sykkelsted h3 {background-image: url(../gfx/ikoner/kart/liten/custom_sykkelspot.png);}
+.ut-map-bubble.tak-over-hodet h3 {background-image: url(../gfx/ikoner/kart/liten/custom_tak-over-hodet.png);}
+.ut-map-bubble.teltplass h3 {background-image: url(../gfx/ikoner/kart/liten/custom_teltplass.png);}
+.ut-map-bubble.utsiktspunkt h3 {background-image: url(../gfx/ikoner/kart/liten/custom_utsiktspunkt.png);}*/
+.direct_hit_map .map-focus {
+    border: 1px solid #fff;
+}
+.map-tool .infobox p, .map-tool .infobox ul {
+    margin-left: 0 !important;
+}
+.met {
+    left: 17px;
+    position: relative;
+    }
+    
+/* http://ut.no/style/search.css */
+
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen {
+/* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+.ui-tabs-hide {
+    display: none;
+}
+}
+/* Hide useless elements in print layouts... */
+@media print {
+.ui-tabs-nav {
+    display: none;
+}
+}
+.direct_hit {
+    width: 430px;
+    margin-left: 120px;
+}
+.direct_hit_map {
+    cursor: pointer;
+    border: 1px solid #d72920;
+}
+#search_tabs {
+    margin-left: 25px;
+    border-bottom: none;
+    list-style-type: none;
+}
+/* Skin for tabs in search box*/
+.ui-tabs-nav,
+.ui-tabs-panel {
+    width: auto;
+}
+.ui-tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 4px;
+    border-bottom: 1px solid #ccc;
+}
+.ui-tabs-nav:after {
+/* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.ui-tabs-nav li {
+    float: left;
+    margin: 0;
+    font-size: 16px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    /*min-width: 110px; be nice to Opera */
+    width: auto;
+    text-align: center;
+    overflow: hidden;
+}
+.ui-tabs-nav a,
+.ui-tabs-nav a span {
+    display: block;
+    padding: 0px 15px;
+    background: url(../gfx/knapper/turfane.png) no-repeat;
+}
+.ui-tabs-nav a {
+    /* position: relative makes opacity fail for disabled tab in IE */
+    padding-left: 0;
+    color: #d72920;
+    line-height: 1.2;    
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    /* required in IE 6 */
+    outline: 0;
+/* prevent dotted border in Firefox */
+}
+/*.ui-tabs-nav .ui-tabs-selected a {
+    position: relative;
+    top: 1px;
+    z-index: 2;
+    margin-top: 0;
+    color: red;
+}*/
+.ui-tabs-nav li.ui-tabs-selected {
+    height: 51px;
+    background: url(../gfx/knapper/turfane_selected.png) no-repeat right 30px;
+    position: relative;
+    margin-left:1px;
+    z-index: 999;
+}
+/*
+.ui-tabs-nav a:hover span {
+    background: url(../gfx/bakgrunner/search_marker_framed.png) no-repeat 60% 33px;
+    position: relative;
+    z-index: 999;
+    height: 40px;
+}
+*/
+.ui-tabs-nav li.ui-tabs-selected:hover {
+    background: none;
+}
+.ui-tabs-nav a span {
+    width: 64px;
+    /* IE 6 treats width as min-width */
+    min-width: 64px;
+    height: 30px;
+    /* IE 6 treats height as min-height */
+    min-height: 30px;
+    padding-top: 6px;
+    padding-right: 0;
+}
+*>.ui-tabs-nav a span {
+    /* hide from IE 6 */
+    width: auto;
+    height: auto;
+}
+.ui-tabs-nav .ui-tabs-selected a span {
+    padding-bottom: 1px;
+}
+.ui-tabs-nav .ui-tabs-selected a,
+.ui-tabs-nav a:hover,
+.ui-tabs-nav a:focus,
+.ui-tabs-nav a:active {
+    background-position: 100% -150px;
+}
+.ui-tabs-nav a,
+.ui-tabs-nav .ui-tabs-disabled a:hover,
+.ui-tabs-nav .ui-tabs-disabled a:focus,
+.ui-tabs-nav .ui-tabs-disabled a:active {
+    background-position: 100% -100px;
+}
+.ui-tabs-nav .ui-tabs-selected a span,
+.ui-tabs-nav a:hover span,
+.ui-tabs-nav a:focus span,
+.ui-tabs-nav a:active span {
+    color: #000;
+    position: relative;
+}
+.ui-tabs-nav a span,
+.ui-tabs-nav .ui-tabs-disabled a:hover span,
+.ui-tabs-nav .ui-tabs-disabled a:focus span,
+.ui-tabs-nav .ui-tabs-disabled a:active span {
+    background-position: 0 0;
+}
+.ui-tabs-nav .ui-tabs-selected a:link,
+.ui-tabs-nav .ui-tabs-selected a:visited,
+.ui-tabs-nav .ui-tabs-disabled a:link,
+.ui-tabs-nav .ui-tabs-disabled a:visited {
+    /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: text;
+}
+.ui-tabs-nav a:hover,
+.ui-tabs-nav a:focus,
+.ui-tabs-nav a:active,
+.ui-tabs-nav .ui-tabs-deselectable a:hover,
+.ui-tabs-nav .ui-tabs-deselectable a:focus,
+.ui-tabs-nav .ui-tabs-deselectable a:active {
+    /* @ Opera, we need to be explicit again here now... */
+    cursor: pointer;
+}
+.ui-tabs-disabled {
+    opacity: .4;
+    filter: alpha(opacity=40);
+}
+.ui-tabs-panel {
+	padding:8px;
+    margin: 0;
+    border-top: 1px solid #bdbdbd;
+    overflow: hidden;
+    position: relative;
+    top: -14px;
+}
+.ui-tabs-loading em {
+    padding: 0 0 0 20px;
+    background: url(../gfx/knapper/loading.gif) no-repeat 0 50%;
+}
+/* Additional IE specific bug fixes... */
+* html .ui-tabs-nav {
+    /* auto clear, @ IE 6 & IE 7 Quirks Mode */
+    display: inline-block;
+}
+*:first-child+html .ui-tabs-nav {   
+    /* @ IE 7 Standards Mode - do not group selectors, otherwise IE 6 will ignore complete rule (because of the unknown + combinator)... */
+    display: inline-block;
+}
+/***************/
+.extra {
+    height: 200px;
+}
+.list {
+    list-style-type: none;
+}
+.list li {
+    line-height: 24px;
+    margin-left: 0 !important;
+}
+.list li a {
+    text-decoration: none;
+}
+.list li a:hover {
+    text-decoration: underline;
+}
+.newsheader {
+    border: 1px solid #d2d2d2;
+    margin: 10px 0 0;
+    background-color: #f0f0f0;
+}
+h2.newsheader {
+    margin: 0;
+}
+/* Søketreff */
+h1.hit {
+    margin: 10px 0 0 0px;
+}
+#subjects-result-1 p {
+    margin-left: 5px;
+}
+#subjects-result-1 a.direct_hit_name {
+    margin-left: 0px;
+    color: #d72920;   
+}
+ul.result p {
+    margin-left: 0 !important;
+    display: inline;
+}
+ul.result {
+    margin: 20px 0 0 0;
+    width: 550px;
+}
+ul.result li.result-item {
+    border-bottom: 1px solid #CCCCCC;
+}
+#listings-result {
+    width: 650px;
+}
+#facet-search-result {
+    width: auto;
+}
+ul.result .thumbnail {
+    float: left;
+    margin: 5px 4px 4px 0;
+}
+ul.result .facilities {
+    border: none 0px;
+}
+.subjects-result div ul.result li {
+    display: block;
+    overflow: hidden;
+    margin: 0 0 20px 0 !important;
+}
+.subjects-result .result a {
+    color: #d72920;
+}
+#search-subject-cottage-list div ul.result li h3,
+.subjects-result div ul.result li h3 {
+    margin: 0;
+    padding: 0;
+    text-transform: none;
+    border: 0;
+    text-decoration: none;
+}
+.search-nav-more {
+    float: right;
+    position: relative;
+    top: -20px;
+}
+.subjects-result div h2 {
+    margin: 0;
+    border: 0;
+    text-transform: none;
+    color: #444;
+    font-size: 20px;
+}
+.subjects-result h3 {
+    margin-top: 15px;
+    font-size: 16px;
+}
+.subjects-result-1-button {
+    font-weight: bold;
+}
+.tripsuggest_all p {
+    clear: none !important;
+}
+#subjects-result-1 .search-subjects {
+    float: left;
+    width: 180px;
+    margin: 5px 0 0 5px;
+}
+#subjects-result-1 .search-result {
+    float: left;
+    width: 750px;
+}
+#subjects-result-1 .result .textual {
+    margin-left: 120px;
+}
+.search-subject, #search-all {
+    background-image: url(../gfx/ikoner/sprites/categories.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    padding: 1px 1px 1px 24px;
+    margin: 2px !important;
+    line-height: 1.5;
+    height: 20px;
+    clear: none; 
+}
+.search-subjects #search-all {
+    background-position: 0 3px;
+}
+.search-subjects .search-subject-trip {
+    background-position: 0 -199px;
+}
+.search-subjects .search-subject-trail {
+    background-position: 0 -149px;
+}
+.search-subjects .search-subject-cottage {
+    background-position: 0 -98px;
+}
+.search-subjects .search-subject-activity {
+    background-position: 0 -249px;
+}
+.search-subjects .search-subject-article {
+   background-position: 0 -299px;
+}
+.search-subjects .search-subject-poi{
+    background-position: 0 -48px;
+}
+.search-subjects .search-subject-video {
+    background-position: 0 -348px;
+}
+.search-subjects .search-subject-location {
+    background-position: 0 -398px;
+}
+.direct_hit_alternative_name {
+    display: none;    
+}
+/* http://ut.no/style/poi.css */
+@charset "UTF-8";
+/*poi form*/
+.poi-entry  {
+    margin-top: 10px;
+}
+.poi-entry fieldset {
+    margin-bottom: 10px;
+}
+.poi-entry fieldset p {
+    margin: 0;
+    padding: 0;
+}
+.poi-entry label {
+    display: block;
+    padding: 4px 0;
+    white-space: nowrap;
+}
+ .poi-entry input[type='text']
+,.poi-entry textarea
+,.poi-entry select { 
+    width: 300px;
+    display:block;
+    position:relative;
+    border: 1px solid #bbb;
+    margin: 4px 1px;
+    padding: 4px;
+    background-color: #fff;
+    background-position: 290px 2px;
+    background-repeat: no-repeat;
+}
+.poi-entry .required {
+    background-image: url(../gfx/ikoner/required.png);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    padding-right: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.poi-entry .submit {
+    background: url(../gfx/knapper/submit.png) no-repeat right top;
+    text-align: center;
+    overflow: visible;
+    font-weight: bold;
+    padding: 0;
+    cursor: pointer;
+    height: 20px;
+    width: 70px !important;
+    border: 0;
+    font-size: 12px;
+}
+.poi-entry input.invalid,
+.poi-entry textarea.invalid {
+    border-color: #cba;
+    background-color: #fff3eb;
+}
+.poi-entry input.valid,
+.poi-entry textarea.valid {
+    border-color: #8b4;
+    background-image: url(../gfx/bakgrunner/form_valid.png);
+    background-color: #f0fff0;
+}
+.websites {
+    line-height: 1.5;
+}
+.poi-entry textarea {
+    background-position: 275px 2px !important;
+}
+.poi-entry .fields-geoposition input {
+    background-position: 130px 2px;
+    display: inline;
+    margin-right: 2px;
+    width: 140px;
+}
+.poi-entry .imagelist h3 {
+    border: 0;
+    display: inline;
+}
+.poi-entry .imagelist li {
+    padding: 2px 0;
+    margin: 0;
+}
+.poi-entry .imagelist img {
+    width: 32px;
+    height: auto;
+    /*float: left;*/
+    clear: both;
+}
+.poi-entry .imagemessage {
+    color: green;
+    display: inline-block;
+}
+.poi-entry .imagemessage.error {
+    color: red;
+    display: inline-block;
+}
+.poi-entry .imagechooser {
+    width: 310px;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    background: #eee none no-repeat scroll 50% 50%;
+    text-align: center;
+    float: left;
+    clear: both;
+}
+.poi-entry .imagechooser.idle {
+    /*background-image: url(../gfx/ikoner/velg_bilde_32x32.png);*/
+    background-image: url(../gfx/knapper/bilde_opplasting.png);
+    background-color:transparent;
+    line-height:4;
+}
+.poi-entry .imagechooser.active {
+    background-image: url(../gfx/ikoner/lastindikator/rund_32x32.gif);
+}
+.vacant {
+    color: #bbb;
+}
+.poitype.sec_type {
+	/*width: 20px;
+	height: 20px;
+	overflow: hidden !important;
+	line-height: 32;
+	display: inline-block;
+	background-image: url(../gfx/bakgrunner/form_valid.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: 0 center;
+    padding-left: 20px;*/
+    background-color: transparent;
+    background-position: left top;
+    background-repeat: no-repeat;
+    height: 30px;
+    line-height: 1.5;
+    margin: 2px !important;
+    overflow: hidden;
+    padding: 1px 1px 1px 20px;
+    width: 90px;
+    display: block;
+}
+.poi-entry  a {
+    text-decoration: underline;
+}
+.poi-entry  a:hover {
+    text-decoration: none;
+}
+.poi-entry legend {
+    margin:0;
+    padding:0;
+}
+.remove {
+    margin-left: 5px;
+}
+.poi-entry .imagemessage {
+    margin-top: 5px;    
+}
+.poi-entry .imagechooser-placeholder {
+    height: 80px;
+}
+.poi-entry .imagechooser-container {
+    width: 310px;
+    position: absolute;
+    height: 60px;
+    top: 250px;
+    z-index: 100;
+    margin:0;
+}
+
+.poi-entry ul.imagelist {
+    list-style-type: none;
+}
+.poi-entry .imagelist input{
+	width:200px !important;
+}
+.poi-edit .optional-toggle {
+    display: none;
+}
+.poi .written-by {
+    margin: 10px 0;
+}
+.poi .written-by span{
+    font-weight: bold;
+}
+.poi .summary {
+    display: block;
+    clear: both;
+}
+.poi .facts-poi {
+    background-color:#EEEEEE;
+    border:1px solid #E1E1E1;
+    padding:4px;
+    display: inline-block;
+}
+.poi .facts-poi ul {
+    list-style-type: none;
+}
+.poi .facts-poi ul li {
+    padding-bottom: 7px;
+    margin: 0 0 0 0;
+    clear: none;
+}
+.poi .facts-poi .info-box {
+    margin: 0 0 10px 0;
+    clear: both;
+}
+.poi .facts-poi span {
+    font-weight: bold;
+}
+.poi .facts-poi span.poitype {
+    font-weight: normal;
+    display: block;
+    width: 100%;
+}
+.poi .facts-poi .poitype.pri_type {
+    padding-bottom: 13px;
+}
+.poitype {
+	background-repeat: no-repeat;
+	padding: 1px 1px 1px 20px;
+    margin: 2px !important;   
+    width: 90px;
+    height: 20px;
+    float: left;
+    clear: none;  
+}
+.poitype_attraksjon {background-image: url(../gfx/ikoner/kart/liten/custom_attraksjon.png);}
+.poitype_badeplass {background-image: url(../gfx/ikoner/kart/liten/custom_badeplass.png);}
+.poitype_dykkeplass {background-image: url(../gfx/ikoner/kart/liten/custom_dykkeplass.png);}
+.poitype_fiskeplass {background-image: url(../gfx/ikoner/kart/liten/custom_fiskeplass.png);}
+.poitype_fjelltopp {background-image: url(../gfx/ikoner/kart/liten/custom_fjelltopp.png);}
+.poitype_grotte {background-image: url(../gfx/ikoner/kart/liten/custom_grotte.png);}
+.poitype_kitested {background-image: url(../gfx/ikoner/kart/liten/custom_kitested.png);}
+.poitype_klatrefelt {background-image: url(../gfx/ikoner/kart/liten/custom_klatrefelt.png);}
+.poitype_multemyr-og-annet-gull- {background-image: url(../gfx/ikoner/kart/liten/custom_multemyr-og-annet-gull-.png);}
+.poitype_padleperle {background-image: url(../gfx/ikoner/kart/liten/custom_padleperle.png);}
+.poitype_rasteplass {background-image: url(../gfx/ikoner/kart/liten/custom_rasteplass.png);}
+.poitype_søndagstur {background-image: url(../gfx/ikoner/kart/liten/custom_søndagstur.png);}
+.poitype_serveringssted {background-image: url(../gfx/ikoner/kart/liten/custom_serveringssted.png);}
+.poitype_ski-og-akebakke {background-image: url(../gfx/ikoner/kart/liten/custom_ski-og-akebakke.png);}
+.poitype_surfebølge {background-image: url(../gfx/ikoner/kart/liten/custom_surfebølge.png);}
+.poitype_sykkelsted {background-image: url(../gfx/ikoner/kart/liten/custom_sykkelspot.png);}
+.poitype_tak-over-hodet {background-image: url(../gfx/ikoner/kart/liten/custom_tak-over-hodet.png);}
+.poitype_teltplass {background-image: url(../gfx/ikoner/kart/liten/custom_teltplass.png);}
+.poitype_utsiktspunkt {background-image: url(../gfx/ikoner/kart/liten/custom_utsiktspunkt.png);}
+
+.poi .facts-poi .external_link {
+    position: relative;
+    display: inline;
+    word-wrap: break-word;
+}
+.span {
+    margin-left: 120px;
+}
+.login {
+    height: 24px;
+    width: 81px;
+    background: url(../gfx/knapper/login.png) no-repeat;
+    margin: 0;
+}
+.submit {    
+    color: #000;
+    text-decoration: none !important;
+    margin: 13px;
+    position: relative;
+    top: 2px;
+}
+.abort-poi {
+    margin-left: 10px;
+}
+.infotext {
+    color: #a4a4a4;
+    font-size: 10px;
+    margin-bottom: 6px;
+}
+.poi-list .edit,
+.poi-list .delete {
+    float: right;
+    width: 100px;
+}
+.poi-list .edit {
+    width: 60px;
+}
+.poi-list {
+    margin-bottom: 0;
+    position: relative;
+    top: -20px;
+}
+.poi-list ul {
+    list-style-type: none;
+    margin: 0 0 0 0 !important;
+}
+.poi-list ul li {
+    margin: 0 !important;
+}
+.poi-list ul.types li {
+    border: none;
+}
+.poi-list .poi .thumbnail {
+    float: left;
+    margin: 4px 0 4px 0;
+}
+.poi-list .subject-poi {
+    width: 350px;
+    display: inline;
+}
+.pin-to-map {
+    float: right;
+    margin-right: 10px;
+    position: relative;
+    top: -30px;
+}
+li .poi {
+    padding: 10px 0 10px 10px;
+    border-bottom: 1px dotted #a4a4a4;
+    float: left;
+    width: 100%;
+}
+li:last-child .poi {
+    border: 0;
+}
+.poi-list .poi h3 {
+    font-weight: bold;
+    display: inline;
+    margin-left: 0 !important;
+}
+.poi-list .poi span {
+    font-size: 11px;
+    float: right;
+}
+.poi-list .poi span.author {
+    float: none;
+    margin: 0;
+}
+.poi-list .poi h3 a, .poi p a{
+    color: #000;
+}
+.poi ul li p {
+    margin: 0 !important;
+}
+.poi .poitype.sec_type {
+    min-height: 30px;
+    height: 30px;
+}
+/*.poi-list .poi .types .poitype.sec_type {
+    width: auto !important;
+}*/
+.poi-list span.types {
+    font-size: 11px;
+    float: left !important;
+    margin: 5px 5px 0 0;
+}
+ul.types {
+    clear: left;
+}
+.subject-poi h3 {
+    border: none;
+    /*display: inline;*/
+    margin-left: 10px;
+}
+.subject-poi .image {
+    width: 113px;
+}
+.ut-map-bubble {
+    width: 300px !important;
+    margin-top: -10px;
+}
+.poiitem{
+	float:left;
+	clear:none;
+	width:100%;
+	background:green;
+}
+.poitype_sec{
+    display: block;
+    float: left;
+    clear: both;
+    white-space: nowrap;
+}
+.poi-intro {
+    /*width: 500px;
+    float: left;*/
+    padding: 0 20px;
+}
+.poi-intro ul {
+    margin-left: 60px !important;
+}
+.poi-intro ul li ul {
+    
+}
+p.notice {
+    float: right;
+    margin: 0 10px 0 0;
+    color: #a4a4a4;
+}
+.profile .poi-list {
+    top: 0;
+}
+.poi .social .print a {
+    margin-top: 0 !important;
+}
+.profile p {
+    display: inline;
+}
+/* http://ut.no/style/disqus.css */
+.dsq-login-box .dsq-popup-body {
+    width: 346px !important;
+}
+#dsq-popup-message.dsq-popup .powered-by,
+.dsq-popup .dsq-modal-tabs,
+.dsq-login-button-disqus,
+.dsq-global-toolbar-dropdown-container,
+.dsq-community-launcher {
+    display: none !important;
+}
+.dsq-popup .dsq-tabbed-modal {
+    background: none !important
+}
+#dsq-sort-select option {
+    padding-right: 10px;
+}
+#dsq-content .dsq-login-buttons {
+    background: none !important;
+}
+#dsq-content .dsq-comment-header {
+background-color: #F2F2F2 !important;
+height: 45px !important;
+}
+#dsq-new-post h3 {
+    font-size: 20px;
+    font-weight: bold;    
+}
+a.dsq-widget-user {
+    cursor: default;
+    text-decoration: none;
+    color: #000;
+}
+img.dsq-widget-avatar {
+    cursor: default;
+}
+#recentcomments {
+    margin-right: 10px;
+}
+.cottage h2.dsq-widget-title, .feedback h2.dsq-widget-title, .trip h2.dsq-widget-title{
+    display: none;
+}
+.dsq-widget {
+    margin-right: 10px;
+    border-bottom: none !important;
+}
+#dsq-new-post h3{
+    display: none !important;
+}
+.dsq-widget-comment {
+    font-size: 80%;
+}
+.dsq-widget-meta {
+    font-size: 100% !important;
+}
+.dsq-widget h3 {
+    font-weight: bold;
+}
+.comment-browser {
+    border:1px solid #C4C4C4;
+margin:10px 0;
+    padding-left: 0 !important;
+}
+.comment-browser h2 {
+    border-bottom: 1px solid #C4C4C4;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px !important;
+    text-transform: uppercase;
+}
+.comment-browser.ui-tabs-nav ul {
+    list-style-type: none;
+    /*margin-left: -10px;*/
+    position: relative;
+}
+.comment-browser.ui-tabs-nav a,
+.comment-browser.ui-tabs-nav a span {
+    padding: 5px;
+}
+.comment-browser.ui-tabs-nav .commenttabs li {
+    width:67px;
+    padding: 10px 5px;
+}
+.comment-browser.ui-tabs-nav a{
+    background: none !important;
+    font-weight: normal;
+    text-align: left;
+    padding: 0;
+    display: inline;
+    white-space: normal;
+}
+.comment-browser.ui-tabs-nav .commenttabs a {
+    padding: 15px 0;
+}
+.comment-browser.ui-tabs-nav .dsq-widget-item {
+    float: none;
+    border: none;
+    background: transparent;
+}
+.comment-browser.ui-tabs-nav .dsq-widget-item li a {
+    color: #0094A6;
+}
+.comment-browser.ui-tabs-nav .dsq-widget-item li a span:hover {
+    color: #0094A6 !important;
+    text-decoration: underline;
+}
+.comment-browser.ui-tabs-nav .ui-tabs-selected a span,
+.comment-browser.ui-tabs-nav a:hover span,
+.comment-browser.ui-tabs-nav a:focus span,
+.comment-browser.ui-tabs-nav a:active span {
+    color: #0094A6 ;
+    position: relative;    
+}
+.comment-browser.ui-tabs-nav .dsq-widget-item li a span{
+   background: none;
+   display: inline;
+}
+.comment-browser.ui-tabs-nav .ui-tabs-panel {
+    border: none;
+    background: #e3e1d9;
+    margin: 0;
+    top: 0;
+    float: left;
+    width: 308px;
+    /*margin-left: -10px;*/
+}
+.comment-browser.ui-tabs-nav li.ui-tabs-selected {
+    height: auto;
+    background: #e3e1d9;
+    margin: 0 !important;
+}
+.comment-browser .ui-tabs-panel li.dsq-widget-item {
+    list-style-type:none;
+    line-height: 1;
+}
+ .comment-browser .ui-tabs-panel li.dsq-widget-item .dsq-widget-user,  .dsq-widget-user {
+    font-size: 12px;
+    cursor: default;
+    font-weight: bold;
+ }
+.comment-browser .ui-tabs-panel li.dsq-widget-item span.dsq-widget-comment {
+    font-size: 10px;
+}
+.comment-browser .ui-tabs-nav li.dsq-widget-item {
+    border: none !important;
+}
+p.dsq-widget-meta {
+    font-size: 11px !important;
+    text-align: left;
+    margin-left: 0 !important;
+    display: inline;    
+}
+p.dsq-widget-meta a {
+    color: #d72920 !important;
+    margin-left: 0 !important;
+}
+.dsq-widget-list {
+    padding: 0 5px;
+}
+.comment-browser .ui-tabs-panel {
+    padding: 0;
+}
+.dsq-popup-container .dsq-popup-title h3 {
+    display: none !important;
+}
+.comment-browser.ui-tabs-nav .commenttabs a:hover {
+   text-decoration: underline;
+}
+.comment-browser.ui-tabs-nav .commenttabs .ui-tabs-selected a:hover {
+    text-decoration: none;
+}
+.polopoly-article #dsq-new-post h3 {
+    display: block !important;
+    color: #000;
+}
+#dsq-content .dsq-options span {
+    margin-right: 2px !important;
+}
+.dsq-widget ul.dsq-widget-list {
+    margin-left: 10px !important;
+}
+.ui-tabs-nav li.dsq-widget-item {
+    text-align: left !important;
+}
+#dsq-dislike-thread-button {
+    display: none !important;
+}
+#dsq-comments-title h3 {
+    color: #000;
+}
+/*#dsq-content #dsq-global-toolbar .dsq-thread-like {
+background:url("../gfx/bakgrunner/disqus_sprite_norsk.png") repeat scroll 0 0 transparent !important;
+}
+#dsq-content #dsq-global-toolbar #dsq-like-thread-button:hover {
+ background:url("http://ut.no/gfx/bakgrunner/disqus_sprite_norsk.png") repeat scroll 0 -22px transparent !important;   
+}
+.dsq-group .dsq-thread-like.toolbar-item.dsq-tt#dsq-like-thread-button:hover {
+background:url("../gfx/bakgrunner/disqus_sprite_norsk.png") repeat scroll 0 -22px transparent !important;
+}*/
+/* http://ut.no/style/profile.css */
+.profile .col4 a {
+    display: block;
+}
+.profile .poi-list ul li {
+    padding: 10px 0;
+    border-bottom: 1px dotted #c2c2c2
+}
+.profile .col11 ul {
+    margin-top: 10px;
+}
+.profile .edit {
+    width: auto !important;
+}
+.profile .poi-list .link-map {
+    float: right;
+    margin-top: -30px;
+    padding: 10px 0;
+}
+.profile .logout{
+    float: left;
+}
+.profile .subject-poi h3 {
+    display: inline;
+}
+/* http://ut.no/style/topic.css */
+/* TOPIC PAGES */
+.topic .basics {
+    float: left;
+    margin: 0 20px 10px 0;
+}
+.topic-list .topic h3 {
+	margin: 0px;
+}
+.topic-list .topic {
+	width: 242px;
+	float: left;
+	clear: none;
+	height: 250px;
+}
+.topic-list .topic p {
+    padding-right: 30px;    
+}
+.topic ul li {
+    margin-left: 0;
+}
+.topic .video h3 a,
+.topic .article h3 a {
+    text-transform: none;
+}
+.topic .intro-element {
+    float: left;
+    height: auto;
+    margin: 0 3px 0 0;
+    min-height: 130px;
+    overflow: visible;
+    padding-right: 4px;
+    width: 313px;
+}
+.topic .intro-element .image img {
+    padding-top: 4px;
+}
+.topic .article-list ul {
+    padding-top: 0 !important;
+}
+/* http://ut.no/style/gallery.css */
+/* Image gallery page */
+.cottage .gallery img {
+    width: auto;
+}
+.gallery-page h1 {
+    text-transform: none;
+    font-size: 38px;    
+    border-bottom: none;
+}
+hr {
+    margin-right: 50px;
+}
+/* Gallery component */
+/*.gallery {
+	margin: 5px 0;
+	border: 1px solid #d2d2d2;
+	background: #fff url(../gfx/dummies/kommer220x180.png)no-repeat 50% 50%;
+}*/
+/*.gallery-mini-browser {
+    height: 30px;
+}*/
+.gallery .gallery-item img {
+    width: 418px;
+}
+.gallery img {
+    width: 300px;
+    float: left;
+    clear: both;
+    margin-bottom: 10px
+}
+.gallery .delete {
+    margin-top: -28px;
+    margin-bottom: 50px;
+}
+.gallery .main-img {
+background:url(../gfx/bakgrunner/form_valid.png)no-repeat;
+float:right;
+margin-right:180px;
+padding-left:20px;
+width:100px   
+}
+.gallery .main-img p {
+    margin: 0;
+}
+.gallery .clear  {
+    background:url(../gfx/ikoner/ut/slett.png)no-repeat;
+    padding:1px 2px 5px 20px;
+}
+.img-upload {
+    border:1px solid #a4a4a4;
+clear:both;
+padding:20px;
+width:300px;
+margin-bottom: 20px;
+}
+.img-upload h3 {
+    border:medium none;
+text-transform:none;
+}
+.img-upload .submit {
+    margin: 0;
+}
+.return {
+    float: right;
+    top: 160px;
+    margin-right: 55px;
+}
+/*.gallery .delete, .gallery .delete a{
+    height:24px;
+    width:100px;
+    padding:0;
+    margin:0;
+    position:relative;
+    
+    background: transparent url(../gfx/knapper/lang_24px.png) no-repeat right center;
+}
+
+
+.gallery .delete a{
+    padding-left:10px;
+    background: transparent url(../gfx/knapper/lang_24px.png) no-repeat left center;
+}*/
+
+/* http://ut.no/scripts/lightbox/jquery.lightbox-0.5.css */
+/**
+ * jQuery lightBox plugin
+ * This jQuery plugin was inspired and based on Lightbox 2 by Lokesh Dhakar (http://www.huddletogether.com/projects/lightbox2/)
+ * and adapted to me for use like a plugin from jQuery.
+ * @name jquery-lightbox-0.5.css
+ * @author Leandro Vieira Pinho - http://leandrovieira.com
+ * @version 0.5
+ * @date April 11, 2008
+ * @category jQuery plugin
+ * @copyright (c) 2008 Leandro Vieira Pinho (leandrovieira.com)
+ * @license CCAttribution-ShareAlike 2.5 Brazil - http://creativecommons.org/licenses/by-sa/2.5/br/deed.en_US
+ * @example Visit http://leandrovieira.com/projects/jquery/lightbox/ for more informations about this jQuery plugin
+ */
+#jquery-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+	width: 100%;
+	height: 500px;
+}
+#jquery-lightbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+	text-align: center;
+	line-height: 0;
+}
+#jquery-lightbox a img { border: none; }
+#lightbox-container-image-box {
+	position: relative;
+	background-color: #fff;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+}
+#lightbox-container-image { padding: 10px; }
+#lightbox-loading {
+	position: absolute;
+	top: 40%;
+	left: 0%;
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	line-height: 0;
+}
+#lightbox-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+}
+#lightbox-container-image-box > #lightbox-nav { left: 0; }
+#lightbox-nav a { outline: none;}
+#lightbox-nav-btnPrev, #lightbox-nav-btnNext {
+	width: 49%;
+	height: 100%;
+	zoom: 1;
+	display: block;
+}
+#lightbox-nav-btnPrev { 
+	left: 0; 
+	float: left;
+}
+#lightbox-nav-btnNext { 
+	right: 0; 
+	float: right;
+}
+#lightbox-container-image-data-box {
+	font: 10px Verdana, Helvetica, sans-serif;
+	background-color: #fff;
+	margin: 0 auto;
+	line-height: 1.4em;
+	overflow: auto;
+	width: 100%;
+	padding: 0 10px 0;
+}
+#lightbox-container-image-data {
+	padding: 0 10px; 
+	color: #666; 
+}
+#lightbox-container-image-data #lightbox-image-details { 
+	width: 70%; 
+	float: left; 
+	text-align: left; 
+}	
+#lightbox-image-details-caption { font-weight: bold; }
+#lightbox-image-details-currentNumber {
+	display: block; 
+	clear: left; 
+	padding-bottom: 1.0em;	
+}			
+#lightbox-secNav-btnClose {
+	width: 66px; 
+	float: right;
+	padding-bottom: 0.7em;	
+}
+/* http://ut.no/style/mytrip.css */
+/* Styles related to My Trip */
+/*****************************/
+.mytrip-box  {
+    background-color:#FFFFFF;
+    border:1px solid #C4C4C4;
+    margin:0 0 10px;
+    overflow:hidden;
+    position:relative;
+    padding: 10px 0;
+    color: #434343;
+    font-size: 12px;
+}
+.mytrip-box  ul, .mytrip-box  h3, .mytrip-box  p {
+    margin: 0 5px 0 10px !important;
+}
+.mytrip-box  h2 a {
+    background: url("../gfx/ikoner/ut/favorite-big.png") no-repeat;
+    padding: 1px 1px 1px 30px;
+}
+.mytrip-box  h2 a {
+    margin-left: 10px;
+}
+.mytrip-box  h3 {
+    font-size: 12px;
+    line-height: 1.4;
+}
+.mytrip-box  h3 a {
+    color: #434343;
+}
+.mytrip_star, .mytrip_add_to_cart, .mytrip_go_to_cart{
+    background-repeat: no-repeat;
+    background-position: 0 bottom;
+    background-image: url(../gfx/ikoner/sprites/favorites.png);
+    padding: 1px 1px 1px 25px;
+    line-height: 1.5;
+    height: 20px;
+    float: left;
+    clear: none;    
+}
+.mytrip_star{
+	float:none;
+	background-position: 0 top;
+	font-weight:bold;
+}
+.mytrip_go_to_cart {
+    margin-right: 20px !important;
+    background-position: 0 top;
+    float: none;
+}
+.mytrip_add_to_cart.faved{
+	background-position: 0 top;
+}
+a.mytrip_add_to_cart {
+    position: relative;
+    color: #000;
+    text-decoration: none;
+    font-size: 11px;
+}
+.mytrip_editor table{
+border: 0;
+width:100%;
+/*IE fix for border*/
+	border-collapse:collapse;
+}
+.mytrip_editor li{
+	margin-left:0;
+}
+.mytrip_editor tr {
+   border-bottom: 1px solid #a3a3a3;
+}
+.mytrip_editor th {
+    background: #f4f2e9;
+    padding: 5px 0;
+	text-align:left;      
+}
+.mytrip_editor td.name .facilities li{
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-image: url(../gfx/ikoner/sprites/facilities.png);
+	padding: 1px;
+    padding-left: 20px;
+    margin: 2px !important;
+	zoom: 1;
+    line-height: 1.5;
+    text-transform: capitalize;
+    float:left;
+}
+.mytrip_editor .thumb
+,.mytrip_editor .no-thumb{
+    padding: 5px;
+}
+.mytrip_editor .no-thumb{
+	background: url(../gfx/ikoner/bilde_mangler_64.png) no-repeat left 5px;
+}
+.mytrip_editor .no-thumb div
+,.mytrip_editor .thumb img
+{
+	width: 64px;
+	height: 64px;
+}
+
+/*.mytrip_editor .no-thumb div,.mytrip_editor .thumb img,*/
+.mytrip_editor ul{
+	display:block;
+	vertical-align:top;
+}
+
+
+.mytrip_editor td{
+	padding-right: 20px;
+	display: table-cell;
+	vertical-align:top;
+}
+
+.mytrip_editor th
+,.mytrip_editor td{
+/*IE fix for border*/
+ border-bottom:1px solid #a3a3a3; 
+}
+.mytrip_editor .move
+,.mytrip_editor .share
+,.mytrip_editor .actions {
+    padding: 5px 0;
+    margin:0;
+}
+
+	
+.mytrip_editor .move{
+	width:60px;
+}
+
+.mytrip_editor .share{
+	width:90px;
+}
+
+.mytrip_editor .actions {
+	width:130px;
+}
+
+
+.mytrip_editor li{
+	margin:0;
+	padding:0;
+}
+
+.mytrip_editor .actions a 
+,.mytrip_editor .move a
+,.mytrip_editor .share a{
+    display: inline;
+}
+.mytrip_editor .actions a 
+,.mytrip_editor .move a
+,.mytrip_editor .share a{
+    background-image: url("../gfx/ikoner/sprites/mytrip.png");
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    padding-left:16px;
+}
+
+.mytrip_editor a.down {      background-position: 0    0px; }
+.mytrip_editor a.up {        background-position: 0  -50px; }
+.mytrip_editor a.print {     background-position: 0 -100px;}
+.mytrip_editor a.email {     background-position: 0 -150px;}
+.mytrip_editor a.facebook {  background-position: 0 -200px;}
+.mytrip_editor a.twitter {   background-position: 0 -250px;}
+.mytrip_editor a.delete {    background-position: 0 -300px;}
+
+
+.mytrip_editor .actions li
+,.mytrip_editor .share li
+,.mytrip_editor .move li{
+	display: inline-block; float:left;
+}
+
+.mytrip_editor .move a
+,.mytrip_editor .share a{
+    text-decoration:none !important;
+}
+
+
+.mytrip_editor .actions.all{
+	text-align:right;
+	width:100%;
+}
+
+.mytrip_editor .actions.all li{
+	padding-left:10px;
+	float:right !important;
+}
+
+.mytrip_editor .actions a{
+    padding-left:20px;
+}
+
+
+.mytrip_editor h3 {
+    margin-bottom: 0;
+}
+.mytrip_list_cart li {
+    margin-left: 0 !important;
+    background: url(../gfx/bakgrunner/arrow.png) no-repeat 0 50%;
+}
+.mytrip_list_cart li a {
+    margin-left: 8px;
+    color: #434343;
+}
+.mytrip_all {
+    background: transparent url("../gfx/bakgrunner/doublearrow.png") no-repeat scroll 0 55% !important;
+    font-weight: bold;
+}
+.mytrip_all a {
+    margin-left: 15px !important;
+}
+.mytrip_drag_handle{
+	cursor:move;
+}
+.mytrip_drag_handle .print {
+    margin-right: 15px !important;
+    }
+tr.mytrip_drag{
+	background-color: #ddd !important;
+}
+.mytrip_editor .editor_awaiting .name {
+	background: transparent url("../gfx/ikoner/lastindikator/horisontal_220x19.gif") no-repeat scroll 50% 50% !important;
+	width:300px;
+}
+.mytrip_editor .tip {
+    padding: 1.5em;
+    border:none !important;
+    background: #f4f2e9;
+    margin-bottom: 10px;
+}
+.mytrip_editor .tip p {
+    margin: 5px 0 !important;        
+}
+.mytrip_editor .empty {
+	padding:2em 0;    
+}
+
+/* http://ut.no/style/yr.css */
+/********** YR component ****/
+.header .yr {
+    float: right;
+}
+.yr * {
+	color: #000 !important;
+	background-color: transparent !important;
+	text-align: right;
+}
+.yr ul {
+    list-style: none;
+    float: left;
+    font-size: 9px;
+    padding: 2px 1px;
+    margin: 0;
+    font-weight: bold;
+}
+.yr .weatherlist {
+    border-right: 1px solid #bbb;
+}
+.yr .weatherlist.end {
+    border-right: 0;
+}
+.yr .weatherlist li {
+    display: block;
+}
+.weathersymbol_list li {
+    display: inline !important;
+}
+.yr li {
+	margin: 0;
+	text-transform: capitalize;
+	display: inline;
+	text-align: left;
+}
+.yr li span.month {
+    text-transform: none;
+}
+.yr img {
+	float: left;
+}
+.yr .yrlink {
+    display: block;
+    color: #d72920 !important;
+}
+.yr .weathersymbol_list {
+   padding-bottom: 0;
+}
+.yr .temperature {
+    float: left;
+    font-size: 12px;
+    padding-left: 4px;
+    padding-top: 6px;
+    color: #400 !important;
+}
+.yr .temperature.subzero {
+	color:#004 !important;
+}
+img.wind_symbol {
+    width: 32px;
+    height: 32px;
+}
+/* http://ut.no/style/bullets.css */
+@charset "UTF-8";
+
+/* referert av alle sider som bruker bullet spriten */
+
+.infobox-bullet{
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-image: url(../gfx/ikoner/sprites/bullets.png);
+    padding-left: 36px;
+    margin-left:4px !important;
+    padding-top:7px !important;
+    text-transform: capitalize;
+    vertical-align:middle;
+    height: 32px;
+    line-height:1.5;
+}
+
+
+/* DNT Cottages */
+.bullet-cottage{                     background-position: 0 -0px;}
+.bullet-cottage.selvbetjent{         background-position: 0 -50px;}
+.bullet-cottage.betjent{             background-position: 0 -100px;}
+.bullet-cottage.stengt{              background-position: 0 -150px;}
+
+/* Private cottages */
+.bullet-cottage.privat,
+.bullet-cottage.rabatt{              background-position: 0 -300px;}
+.bullet-cottage.private.selvbetjent,
+.bullet-cottage.rabatt.selvbetjent{  background-position: 0 -350px;}
+.bullet-cottage.privat.betjent,
+.bullet-cottage.rabatt.betjent{      background-position: 0 -400px;}
+.bullet-cottage.private.closed,
+.bullet-cottage.rabatt.closed{       background-position: 0 -450px;}
+
+/* General bullets */
+.bullet-location{                     background-position: 0 -600px;}
+.bullet-terrain{                      background-position: 0 -650px;}
+.bullet-openings{                     background-position: 0 -700px;}
+.bullet-arrival{                      background-position: 0 -750px;}
+.bullet-contact{                      background-position: 0 -800px;}
+
+
+/*
+.bullet-cottage-private-unserviced{   background-position: 0 -300px;}
+.bullet-cottage-private-selfserviced{ background-position: 0 -350px;}
+.bullet-cottage-private-serviced{     background-position: 0 -400px;}
+.bullet-cottage-private-closed{       background-position: 0 -450px;}
+
+*/

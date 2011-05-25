@@ -8,7 +8,7 @@ if (!window.QGIS) {
 }
 
 //Servername and name of CGI-file
-var serverAndCGI = "http://srv139/cgi/qgis_mapserv.fcgi"; //URL mit Name des qgis mapserver cgi
+var serverAndCGI = "http://79.125.20.95/cgi-bin/mapping/qgis_mapserv.fcgi?"; //URL mit Name des qgis mapserver cgi
 
 //search URLs
 //URL for queries while typing
@@ -17,10 +17,11 @@ var searchBoxQueryURL = "/wsgi/search.wsgi?query=";
 var searchBoxGetGeomURL = "/wsgi/getSearchGeom.wsgi";
 
 //first part of titlebar text
-var titleBarText = "GIS-Browser Uster - "; // will be appended with project title
+var titleBarText = "ut.no map browser - "; // will be appended with project title
 
 //EPSG projection code
-var epsgcode = 21781;
+//var epsgcode = 21781;
+var epsgcode = 4326;
 
 // OpenLayers global options
 // see http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html

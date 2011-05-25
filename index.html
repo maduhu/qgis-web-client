@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>UT.no maps (test)</title>
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<style type="text/css">
+body
+{
+background-image:url("web_img/new_kart.png");
+}
+
+h1, p, div
+{
+text-align:center;
+}
+
+.center
+{
+margin-left:auto;
+margin-right:auto;
+padding-bottom:70px;
+}
+
+#maplist{position:relative;}
+#maplist li, #maplist a{height:134px;display:block;width:650px;margin-left:auto;margin-right:auto;margin-bottom:10px;}
+
+#test{width:650px;}
+#test{background:url('web_img/button_test.png') 0 0;}
+#test a:hover{background: url('web_img/button_test.png') 0 -134px;}
+
+#no_link{width:650px;}
+#no_link{background:url('web_img/button_none.png');}
+</style>
+</head>
+
+<body>
+
+<div id="container" style="background-color:#FFFFFF;width:1024px;" class="center">
+  <div id="header">
+
+  <!-- Google translation follows! Please fix with real Norwegian as needed! -->
+  <h1 style="color:#DB3F3A;">Velkommen til ut.no kart!</h1>
+
+  <p class="center">Vennligst gj&oslashr et valg nedenfor:</p>
+  </div>
+
+  <div id="button">
+    <ul id="maplist">
+      <li id="test"><a href="qgiswebclient.html?map=%27test%27"></a></li>
+      <li id="no_link"></li>
+      <li id="no_link"></li>
+    </ul>
+  </div>
+
+</div>
+</body>
+
+
+</html>
