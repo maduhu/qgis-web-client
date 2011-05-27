@@ -45,7 +45,7 @@ var OverviewMapOptions = {
 };
 var OverviewMapSize = new OpenLayers.Size(200,200);
 var overviewLayer = new OpenLayers.Layer.WMS("Pixelkarte",
-			"http://srv139/cgi/mapserv?map=/home/www/mapserverdata/uster_pk_kombiniert.map", 
+			"/cgi-bin/mapserv?map=/path-to-map/.map", 
 			{layers:"pk_kombiniert",format:"image/jpeg"},
 			{buffer:0,singleTile:true,transitionEffect:"resize"});
 

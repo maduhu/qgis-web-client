@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="gis-project_listing.xsl"?>
-<webgis path="/webgis/prototyp/qgiswebclient.html" mapserver="/cgi-bin/mapping/qgis_mapserv.fcgi" thumbnails="/webgis/prototyp/thumbnails" title=" UT.NO Maps">
-    <topic name="utno_test">
-      <project name="utno_test" projectpath="/usr/lib/cgi-bin/mapping/" projectfile="utno_test" format="image/png" visibleLayers="test_polys,test_points,test_lines" update="täglich" responsible="rudi"/> 
-    </topic>
-</webgis>
