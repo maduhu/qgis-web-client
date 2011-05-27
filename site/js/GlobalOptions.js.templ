@@ -1,14 +1,9 @@
 //default language code, can be overwritten with lang parameter in URL
 var lang = "en"; //for available codes see array availableLanguages in file GlobalOptions.js 
 
-//new namespace for QGIS extensions
-//do not modify those three lines
-if (!window.QGIS) {
-    window.QGIS = {};
-}
-
 //Servername and name of CGI-file
-var serverAndCGI = "http://79.125.20.95/cgi-bin/mapping/qgis_mapserv.fcgi?"; //URL mit Name des qgis mapserver cgi
+//Path must include the host name for print to work
+var serverAndCGI = "http://qgis-web-client.localhost/cgi-bin/qgis_mapserv.fcgi"; //URL mit Name des qgis mapserver cgi
 
 //search URLs
 //URL for queries while typing
@@ -17,11 +12,18 @@ var searchBoxQueryURL = "/wsgi/search.wsgi?query=";
 var searchBoxGetGeomURL = "/wsgi/getSearchGeom.wsgi";
 
 //first part of titlebar text
-var titleBarText = "ut.no map browser - "; // will be appended with project title
+var titleBarText = "GIS-Browser - "; // will be appended with project title
 
 //EPSG projection code
-//var epsgcode = 21781;
 var epsgcode = 4326;
+
+// <------------ No changes should be needed below here ------------------>
+
+//new namespace for QGIS extensions
+//do not modify those three lines
+if (!window.QGIS) {
+    window.QGIS = {};
+}
 
 // OpenLayers global options
 // see http://dev.openlayers.org/releases/OpenLayers-2.10/doc/apidocs/files/OpenLayers/Map-js.html

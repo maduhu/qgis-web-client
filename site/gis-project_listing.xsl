@@ -32,7 +32,7 @@
             <xsl:for-each select="./project">
                 <xsl:variable name="projectfile"><xsl:value-of select="./@projectfile"/></xsl:variable>
                 <xsl:variable name="url">
-                    <xsl:value-of select="/webgis/@path"/>
+                    <xsl:value-of select="@path"/>
                     <xsl:text>?map=</xsl:text>
                     <xsl:value-of select="./@projectpath"/>
                     <xsl:value-of select="./@projectfile"/>
@@ -42,7 +42,7 @@
                     <xsl:value-of select="./@visibleLayers"/>
                 </xsl:variable>
                 <xsl:variable name="urlcgi">
-                    <xsl:value-of select="/webgis/@mapserver"/>
+                  <xsl:value-of select="/@mapserver"/>
                     <xsl:text>?map=</xsl:text>
                     <xsl:value-of select="./@projectpath"/>
                     <xsl:value-of select="./@projectfile"/>
@@ -50,7 +50,7 @@
                 </xsl:variable>
                 <tr>
                 <td>
-                    <a href="{$url}"><img width="600" height="200" src="/webgis/thumbnails/{$projectfile}.png" align="top"/></a>
+                    <a href="{$url}"><img width="600" height="200" src="/thumbnails/{$projectfile}.png" align="top"/></a>
                 </td>
                 <td valign="top">
                     <a href="{$url}"><xsl:value-of select="./@name"></xsl:value-of></a><br/><br/>
